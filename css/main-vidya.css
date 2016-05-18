@@ -1,43 +1,45 @@
 div, body, section, aside, footer, header, nav, p, li, ol, ul, span, h1, h2, h3, h4, h5, h6, dt, dd, dl, a {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
+
+
 
 .balance-text {
   text-wrap: balanced;  /* Apply (proposed) CSS style */
 }
 
 body {
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-weight: 100;
+	font-family: 'Open Sans Condensed', sans-serif;	padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 1.2em;
 }
 
 h1, h2, h3, h4, h5, .lead {
-	font-weight: 100;
+	font-weight: 200;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+	font-weight: 400;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 5vw;
 }
 
 h2 {
-	font-size: 3em;
+	font-size: 4vw;
 	margin-bottom: .5em;
-	border-left: 4px #FD0C0C solid;
-	padding-left: .4em;
-	letter-spacing: .3em;
 }
 
 a {
 	text-decoration: none;
-	color: #FD0C0C;
+	color: #1EA717;
 }
 
-.navbar,
-.business, 
-.content, 
-.community,
-.design {
+.navbar {
 	padding-left: 5em;
 	padding-right: 5em;
 }
@@ -45,6 +47,11 @@ a {
 .navbar {
 	padding-top: 1.5em;
 	padding-bottom: 1.5em;
+}
+
+.navbar .btn-group a:not(.btn) {
+	margin: 0 10px;
+	display: inline-block;
 }
 
 .navbar .avatar-wrapper {
@@ -94,26 +101,19 @@ a {
 .btn {
 	display: inline-block;
 	padding: 15px 20px;
-	color: #FD0C0C;
-	border: 1px #FD0C0C solid;
+	color: #000;
+	border: 1px #1EA717 solid;
 	border-radius: 5px;
 	text-decoration: none;
 	transition: .5s background ease-in-out, .3s color ease-in-out;
 	-webkit-transition: .5s background ease-in-out, .3s color ease-in-out;
 	-moz-transition: .5s background ease-in-out, .3s color ease-in-out;
-
+	text-align: center;
 }
 
 .btn:hover {
-	background: #FD0C0C;
+	background: #1EA717;
 	color: white;
-}
-
-.business, 
-.content, 
-.community,
-.design {
-	margin: 2em 0;
 }
 
 .lead {
@@ -135,21 +135,96 @@ a {
 .clearfix { display: block; }
 /* close commented backslash hack */
 
+.top {
+	position: relative;
+	margin: 2em auto 10em;
+	max-width: 100%;
+	width: 800px;
+}
 
+.top img {
+	position: absolute;
+	top: 15px;
+	left: 0;
+	width: 190px;
+	border-radius: 50%;
+}
 
-@media (max-width: 800px) {
-	body {
-		font-size: .8em;
-	}
+.top .buttons {
+	text-align: center;
+}
 
-	.navbar, 
-	.business,
-	.content, 
-	.community,
-	.design {
-		padding-right: 2em;
-		padding-left: 2em;
-	}
+.top .btn {
+    margin: 0px 3.6%;
+    width: 28%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.top .btn:first-child {
+	margin-left: 0;
+}
+
+.top .btn:last-child {
+	margin-right: 0;
+}
+
+.top .lead {
+	font-size: 1.75vw;
+	color: #1EA717;
+	line-height: 29px;
+	margin-bottom: 50px;
+}
+
+.top .content {
+	padding-left: 210px;
+}
+
+.buckets section {
+	border-top: 1px solid #CACACA;
+	border-bottom: 1px solid #CACACA;
+}
+
+.buckets section > * {
+	padding: 5%;
+}
+
+.buckets .content {
+	width: 60%;
+	background: white;
+}
+
+.buckets .content ul {
+	max-width: 500px;
+	margin-left: 20px;
+}
+
+.buckets .content li {
+	margin-bottom: 15px;
+	list-style-position: inside;
+	color: #1EA717;
+}
+
+.buckets .quote {
+	width: 40%;
+	background: #F8F8F8;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.buckets .quote cite {
+	font-size: 11px;
+}
+
+.buckets .content,
+.buckets .quote {
+	float: left;
+	box-sizing: border-box;
+	height: 500px;
 }
 
 @media (max-width: 500px) {
@@ -160,29 +235,4 @@ a {
 	.btn, h1, h2, h3, h4, h5, h6, .lead {
 		font-weight: 200;
 	}
-
-	.navbar, 
-	.business, 
-	.content, 
-	.community,
-	.design {
-		padding-right: 1em;
-		padding-left: 1em;
-	}
 }
-
-#top-two, #bottom-two {
-	width: 50%;
-}
-
-#top-two {
-	float: left;
-}
-
-#bottom-two {
-	float: right;
-}
-
-
-
-
