@@ -12,6 +12,7 @@ div, body, section, aside, footer, header, nav, p, li, ol, ul, span, h1, h2, h3,
 
 body {
 	font-family: 'Open Sans Condensed', sans-serif;	padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
     font-size: 1.2em;
 }
@@ -22,7 +23,7 @@ h1, h2, h3, h4, h5, .lead {
 
 h1, h2 {
 	text-transform: uppercase;
-	font-weight: 400;
+	font-weight: 700;
 }
 
 h1 {
@@ -39,12 +40,13 @@ a {
 	color: #1EA717;
 }
 
-.navbar {
-	padding-left: 5em;
-	padding-right: 5em;
+p {
+	margin-bottom: 1em;
 }
 
 .navbar {
+	padding-left: 5em;
+	padding-right: 5em;
 	padding-top: 1.5em;
 	padding-bottom: 1.5em;
 }
@@ -117,8 +119,9 @@ a {
 }
 
 .lead {
-	font-size: 1em;
-	line-height: 1.2em;
+	color: #1EA717;
+	line-height: 29px;
+	margin-bottom: 50px;
 }
 
 .clearfix:after {
@@ -137,8 +140,8 @@ a {
 
 .top {
 	position: relative;
-	margin: 2em auto 10em;
-	max-width: 100%;
+	margin: 5em auto 9em;
+	max-width: 90%;
 	width: 800px;
 }
 
@@ -152,6 +155,11 @@ a {
 
 .top .buttons {
 	text-align: center;
+}
+
+.top .buttons a {
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .top .btn {
@@ -169,12 +177,6 @@ a {
 	margin-right: 0;
 }
 
-.top .lead {
-	font-size: 1.75vw;
-	color: #1EA717;
-	line-height: 29px;
-	margin-bottom: 50px;
-}
 
 .top .content {
 	padding-left: 210px;
@@ -217,19 +219,98 @@ a {
 }
 
 .buckets .quote cite {
-	font-size: 11px;
+	font-size: 14px;
 }
 
 .buckets .content,
 .buckets .quote {
 	float: left;
 	box-sizing: border-box;
-	height: 500px;
+	height: 650px;
+}
+
+.cta {
+	text-align: center;
+	padding: 5%;
+}
+
+@media (min-width: 1050px) {
+
+	.top .lead {
+		font-size: 1.75vw;
+	}
+
+}
+
+@media (max-width: 1050px) {
+	.top h1 {
+		font-size: 35px;
+	}
+
+	.btn {
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 950px) {
+	.buckets .content,
+	.buckets .quote {
+		float: none;
+		height: auto;
+		width: 100%;
+	}
+
+	.quote blockquote, 
+	.quote cite {
+		max-width: 600px;
+	}
+}
+
+@media (max-width: 750px) {
+	.top {
+		margin: 2em auto;
+	}
+
+	.top .btn {
+		display: block;
+		width: 100%;
+		padding: 10px;
+	}
+
+	.top .btn:first-child,
+	.top .btn {
+		margin: 10px 0;
+	}
+}
+
+@media (max-width: 570px) {
+	.navbar .navbar-buttons {
+		width: 100%;
+		text-align: center;
+		max-width: 100%;
+	}
+
+	html body h2 {
+		font-size: 22px;
+		font-weight: 600;
+	}
+
+	.top {
+		text-align: center;
+	}
+
+	.top .content {
+		padding-left: 0;
+	}
+
+	.top img {
+		position: static;
+	}
 }
 
 @media (max-width: 500px) {
 	body {
-		font-size: .55em;
+		font-size: 1em;
 	}
 
 	.btn, h1, h2, h3, h4, h5, h6, .lead {
