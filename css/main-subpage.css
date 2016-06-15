@@ -117,6 +117,14 @@ img {
 	border-style: black 1px solid;
 }
 
+.examples h2 {
+	margin-bottom: 10px;
+}
+
+#work-samples p {
+	margin: 1em;
+}
+
 .right {
     float:right;
     line-height: 50px;
@@ -152,13 +160,12 @@ img {
 
 .top .buttons {
 	text-align: center;
-	font-size: 1.5em;
 	padding-top: 15px;
 }
 
 .top .btn {
     margin: 0px 3.6%;
-    width: 28%;
+    width: 25%;
     padding-top: 16px;
     padding-bottom: 16px;
 }
@@ -175,7 +182,7 @@ img {
 	font-size: 1em;
 	color: #565656;
 	line-height: 29px;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 }
 
 .header {
@@ -215,8 +222,15 @@ img {
 		margin-bottom: -28px;
 	}
 
-	.top .buttons {
+	.top .buttons .btn {
+		display: block; 
 		font-size: 1.3em;
+		text-align: center;
+		width: 100%;
+		margin: 15px 0;
+	}
+
+	.left a, .right a {
 		text-align: center;
 	}
 }
