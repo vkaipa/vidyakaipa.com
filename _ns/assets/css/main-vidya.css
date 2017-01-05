@@ -1,0 +1,319 @@
+div, body, section, aside, footer, header, nav, p, li, ol, ul, span, h1, h2, h3, h4, h5, h6, dt, dd, dl, a {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+
+.balance-text {
+  text-wrap: balanced;  /* Apply (proposed) CSS style */
+}
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;	padding-top: 50px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 1.2em;
+}
+
+h1, h2, h3, h4, h5, .lead {
+	font-weight: 200;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 5vw;
+}
+
+h2 {
+	font-size: 4vw;
+	margin-bottom: .5em;
+}
+
+a {
+	text-decoration: none;
+	color: #1EA717;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.navbar {
+	padding-left: 5em;
+	padding-right: 5em;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+.navbar .btn-group a:not(.btn) {
+	margin: 0 10px;
+	display: inline-block;
+}
+
+.navbar .avatar-wrapper {
+	float: left;
+	width: 50%;
+	position: relative;
+}
+
+.navbar .avatar-wrapper img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0px;
+}
+
+.navbar .avatar-wrapper h1 {
+  	padding-left: 60px;
+  	line-height: 50px;
+}
+
+.navbar .navbar-buttons {
+	float: right;
+	max-width: 200px;
+	width: 50%;
+	text-align: right;
+}
+
+.navbar .navbar-buttons .btn-group {
+	display: inline-block;
+}
+
+.navbar .navbar-buttons .btn {
+	float: left;
+}
+
+.navbar .navbar-buttons .btn:first-child {
+	border-radius: 5px 0 0 5px;
+}
+
+.navbar .navbar-buttons .btn:last-child {
+	border-radius: 0 5px 5px 0;
+	border-left: 0;
+}
+
+.btn {
+	display: inline-block;
+	padding: 15px 20px;
+	color: #000;
+	border: 1px #1EA717 solid;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: .5s background ease-in-out, .3s color ease-in-out;
+	-webkit-transition: .5s background ease-in-out, .3s color ease-in-out;
+	-moz-transition: .5s background ease-in-out, .3s color ease-in-out;
+	text-align: center;
+}
+
+.btn:hover {
+	background: #1EA717;
+	color: white;
+}
+
+.lead {
+	color: #1EA717;
+	line-height: 1.7em;
+	margin-bottom: 50px;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.top {
+	position: relative;
+	margin: 5em auto 9em;
+	max-width: 90%;
+	width: 800px;
+}
+
+.top img {
+	position: absolute;
+	top: 15px;
+	left: 0;
+	width: 190px;
+	border-radius: 50%;
+}
+
+.top .buttons {
+	text-align: center;
+}
+
+.top .buttons a {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.top .btn {
+    margin: 0px 3.6%;
+    width: 28%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.top .btn:first-child {
+	margin-left: 0;
+}
+
+.top .btn:last-child {
+	margin-right: 0;
+}
+
+
+.top .content {
+	padding-left: 210px;
+}
+
+.buckets section {
+	border-top: 1px solid #CACACA;
+	border-bottom: 1px solid #CACACA;
+}
+
+.buckets section > * {
+	padding: 5%;
+}
+
+.buckets .content {
+	width: 60%;
+	background: white;
+}
+
+.buckets .content ul {
+	max-width: 500px;
+	margin-left: 20px;
+}
+
+.buckets .content li {
+	margin-bottom: 15px;
+	list-style-position: inside;
+	color: #1EA717;
+}
+
+.buckets .quote {
+	width: 40%;
+	background: #F8F8F8;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.buckets .quote cite {
+	font-size: 14px;
+}
+
+.buckets .content,
+.buckets .quote {
+	float: left;
+	box-sizing: border-box;
+	height: 700px;
+}
+
+.cta {
+	text-align: center;
+	padding: 5%;
+}
+
+@media (min-width: 1050px) {
+
+	.top .lead {
+		font-size: 1.75vw;
+	}
+
+}
+
+@media (max-width: 1050px) {
+	.top h1 {
+		font-size: 35px;
+	}
+
+	.btn {
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 950px) {
+	.buckets .content,
+	.buckets .quote {
+		float: none;
+		height: auto;
+		width: 100%;
+	}
+
+	.quote blockquote, 
+	.quote cite {
+		max-width: 600px;
+	}
+}
+
+@media (max-width: 750px) {
+	.top {
+		margin: 2em auto;
+	}
+
+	.top .btn {
+		display: block;
+		width: 100%;
+		padding: 10px;
+	}
+
+	.top .btn:first-child,
+	.top .btn {
+		margin: 10px 0;
+	}
+}
+
+@media (max-width: 570px) {
+	.navbar .navbar-buttons {
+		width: 100%;
+		text-align: center;
+		max-width: 100%;
+	}
+
+	html body h2 {
+		font-size: 22px;
+		font-weight: 600;
+	}
+
+	.top {
+		text-align: center;
+	}
+
+	.top .content {
+		padding-left: 0;
+	}
+
+	.top img {
+		position: static;
+	}
+}
+
+@media (max-width: 500px) {
+	body {
+		font-size: 1em;
+	}
+
+	.btn, h1, h2, h3, h4, h5, h6, .lead {
+		font-weight: 200;
+	}
+}
