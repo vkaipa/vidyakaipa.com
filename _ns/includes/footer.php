@@ -4,7 +4,7 @@
 		    
 		    <div class="rectangles-boss">
 		      
-		      <a href="../resumes/vidya-kaipa-marketing.pdf" class="rectangles pink tall">Resume</a>
+		      <a href="/resumes/vidya-kaipa-marketing.pdf" class="rectangles pink tall">Resume</a>
 
 		      <a href="mailto:vidyalkaipa@gmail.com" class="rectangles blue tall">Email</a>
 
