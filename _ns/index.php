@@ -3,7 +3,6 @@
     $pageTitle = 'Home';
     $pageId = '';
     include($pathDepth . 'includes/head.php');
-    include($pathDepth . 'includes/header.php');
     include($pathDepth . 'includes/navbar.php');
 ?>
 
