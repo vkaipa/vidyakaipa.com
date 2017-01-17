@@ -50,7 +50,7 @@
 
 <br>
 
-<?php include('includes/scripts.php'); ?>
+<?php include($pathDepth . 'includes/scripts.php'); ?>
     
 <!-- page specific html goes here! -->
 
