@@ -8,11 +8,12 @@
     include($pathDepth . 'includes/navbar.php');
 ?>
 
-<div class="detail">
+<?php include($pathDepth . 'includes/work-grid.php'); ?>
+
   <div class="nonhero grey" id="content-design">
     <h2>Content Design &amp; Documentation</h2>
     <a href="http://www.vidyakaipa.com/samples/runway-user-guide.pdf">
-      <img src="../../samples/runway-user-guide.png"/ alt="runway-user-guide">
+      <img src="../assets/samples/runway-user-guide.png"/ alt="runway-user-guide">
       <h3 align="middle">Example: Runway User Guide</h3>
     </a>
     <ul class="two-column">
@@ -29,7 +30,7 @@
 
   <div class="nonhero" id="blog">
     <h2>Blog</h2>
-    <a href="http://www.vidyakaipa.wordpress.com"><img src="../../samples/blog-sample.png" alt="vidya-kaipa-blog"></a>
+    <a href="http://www.vidyakaipa.wordpress.com"><img src="../assets/samples/blog-sample.png" alt="vidya-kaipa-blog"></a>
     <ul class="two-column"> 
         <li>Wrote and edited blogs for Runway, MentorCloud, and Go Overseas</li>
         <li>Established content strategy and co-marketing opportunities</li>
@@ -73,7 +74,7 @@
   <div class="nonhero grey" id="email">
     <h2>Email</h2>
      <a href="http://us6.campaign-archive2.com/?u=23dfc610efa742a5d4dd7a13c&id=504a3c30e6&e=8d20362949">
-      <img src="../../samples/email-sample.png"/ alt="Runway email sample">
+      <img src="../assets/samples/email-sample.png"/ alt="Runway email sample">
       <h3 align="middle">Example: Runway User Guide</h3>
     </a>
     <ul class="two-column">
@@ -87,7 +88,7 @@
   <div class="nonhero" id="web-content">
     <h2>Website Content &amp; UX</h2>
     <a href="http://www.mentorcloud.com">
-      <img src="../../samples/mentorcloudux.png"/ alt="MentorCloud Website">
+      <img src="../assets/samples/mentorcloudux.png"/ alt="MentorCloud Website">
       <h3 align="middle">Example: MentorCloud Website</h3>
     </a>
       <ul class="two-column">
@@ -100,7 +101,7 @@
 
   <div class="nonhero grey" id="events">
     <h2>Events</h2>
-    <img src="../../samples/mentorcloud-events.jpg"/>
+    <img src="../assets/samples/mentorcloud-events.jpg"/>
       <h3>Meetups</h3>
       <ul class="two-column">
         <li>Collaborated with 50+ industry leaders to design programming (workshops, lectures, panels) around community-defined subject-matter interests of 200+ resident entrepreneurs</li>
@@ -158,10 +159,10 @@
       </ul>
   </div>
 </div>
-</div>
+
+<?= include('includes/scripts.php'); ?>
 
 <!-- page specific html goes here! -->
-
 
 <?php include($pathDepth . 'includes/footer.php'); ?>
 

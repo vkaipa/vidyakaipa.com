@@ -42,6 +42,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/assets/css/main-marketing.css">
+        <link rel="stylesheet" href="/assets/css/patterns.css">
+        <link rel="stylesheet" href="/assets/css/navbar.css">        
+        <link rel="stylesheet" href="/assets/css/buttons.css">
 
 <!-- Hotjar Tracking Code for http://www.vidyakaipa.com -->
       <script>

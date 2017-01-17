@@ -1,0 +1,72 @@
+/* BUTTONS - Behavior */
+
+#hero-button {
+	display: block;
+	border: 2px #D7CB1A solid;
+	border-radius: 5%;
+	padding: 20px;
+	
+	margin: 10px 0;
+	width: 100%;
+}
+
+#circles-button {
+	display: block;
+	border: 2px #545454 solid;
+	border-radius: 5%;
+	padding: 20px;
+	color: #545454;
+	text-align: center;
+	text-decoration: none;
+	transition: .5s background ease-in-out, .3s color ease-in-out;
+	-webkit-transition: .5s background ease-in-out, .3s color ease-in-out;
+	-moz-transition: .5s background ease-in-out, .3s color ease-in-out;
+	vertical-align: middle;
+
+	margin: 1.5em auto;
+	width: 40%;
+
+}
+
+.btn {
+	display: inline-block;
+	border: 2px #545454 solid;
+	border-radius: 5%;
+	padding: 20px;
+	color: #545454;
+	text-align: center;
+	text-decoration: none;
+	transition: .5s background ease-in-out, .3s color ease-in-out;
+	-webkit-transition: .5s background ease-in-out, .3s color ease-in-out;
+	-moz-transition: .5s background ease-in-out, .3s color ease-in-out;
+	vertical-align: middle;
+
+	background-color: white;
+}
+
+.top .buttons {
+	text-align: center;
+	padding: 20px;
+	width: 80%;
+	max-width: 1000;
+	margin: auto;
+}
+
+.top .btn {
+    margin: 0px 3.6%;
+    width: 25%;
+}
+
+.top .btn:first-child {
+	margin-left: 0;
+}
+
+.top .btn:last-child {
+	margin-right: 0;
+}
+
+.btn:hover, #circles-button:hover {
+	background: #D7CB1A;
+	color: #545454;
+	border: 2px solid transparent;
+}

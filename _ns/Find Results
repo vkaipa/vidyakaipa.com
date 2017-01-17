@@ -1,0 +1,98 @@
+Searching 40 files for "scripts.php"
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/_template.php:
+   13  <a id ="circles-button" href="mailto:vidyalkaipa@gmail.com">Contact Vidya</a>
+   14  
+   15: <?php include($pathDepth . 'includes/scripts.php'); ?>
+   16  
+   17  <!-- page specific html goes here! -->
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/index.php:
+   54  <br>
+   55  
+   56: <?php include('includes/scripts.php'); ?>
+   57      
+   58  <!-- page specific html goes here! -->
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/services/index.php:
+   79      </div>
+   80  
+   81: <?php include($pathDepth . 'includes/scripts.php'); ?>
+   82  
+   83  <!-- page specific html goes here! -->
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/work/index.php:
+  161  </div>
+  162  
+  163: <?= include('includes/scripts.php'); ?>
+  164  
+  165  <!-- page specific html goes here! -->
+
+4 matches across 4 files
+
+
+Searching 40 files for "index.php"
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/index.php:
+   50      
+   51  <?php include($pathDepth . 'includes/work-grid.php'); ?>
+   52: <a id ="circles-button" href="/work/index.php">See all work</a>
+   53  
+   54  <br>
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/includes/work-grid.php:
+    4      <p class="lead">Perhaps you just need help in improving your blog content and consistency, or maybe your company needs to update its website content so that users can navigate to important pages. Vidya's diverse experience leading in-house marketing teams, consulting with early-stage startups, and starting a media-first nonprofit has equipped her with the tools and insight necessary to strengthen your team's long-term marketing efforts. View her work below to learn more about her process.</p>
+    5        <div class="samples-boss">
+    6:         <a href="/work/index.php#content-design" class="blue">Content Design &amp; Documentation</a>
+    7:         <a href="/work/index.php#blog" class="green">Blog</a>
+    8:         <a href="/work/index.php#email" class="orange">Email</a>    
+    9:         <a href="/work/index.php#web-content" class="grey">Website Content &amp; UX</a>
+   10:         <a href="/work/index.php#events" class="purple">Events</a>
+   11:         <a href="/work/index.php#metrics" class="white">Measurements, Metrics, &amp; A/B Testing</a>
+   12:         <a href="/work/index.php#sem" class="red">SEM &amp; Paid Advertising</a>
+   13:         <a href="/work/index.php#partnerships" class="yellow">Partnerships</a>
+   14:         <a href="/work/index.php#social-media" class="boxes pink">Social Media</a>
+   15        </div>
+   16     </div>
+
+10 matches across 2 files
+
+
+Searching 40 files for "index.php"
+
+/Users/vidya/Projects/vidyakaipa.com/_ns/includes/work-grid.php:
+    4      <p class="lead">Perhaps you just need help in improving your blog content and consistency, or maybe your company needs to update its website content so that users can navigate to important pages. Vidya's diverse experience leading in-house marketing teams, consulting with early-stage startups, and starting a media-first nonprofit has equipped her with the tools and insight necessary to strengthen your team's long-term marketing efforts. View her work below to learn more about her process.</p>
+    5        <div class="samples-boss">
+    6:         <a href="/work/index.php#content-design" class="blue">Content Design &amp; Documentation</a>
+    7:         <a href="/work/index.php#blog" class="green">Blog</a>
+    8:         <a href="/work/index.php#email" class="orange">Email</a>    
+    9:         <a href="/work/index.php#web-content" class="grey">Website Content &amp; UX</a>
+   10:         <a href="/work/index.php#events" class="purple">Events</a>
+   11:         <a href="/work/index.php#metrics" class="white">Measurements, Metrics, &amp; A/B Testing</a>
+   12:         <a href="/work/index.php#sem" class="red">SEM &amp; Paid Advertising</a>
+   13:         <a href="/work/index.php#partnerships" class="yellow">Partnerships</a>
+   14:         <a href="/work/index.php#social-media" class="boxes pink">Social Media</a>
+   15        </div>
+   16     </div>
+
+9 matches in 1 file
+
+
+Searching 40 files for "/index.php"
+
+0 matches across 0 files
+
+
+Searching 40 files for "/index.php"
+
+0 matches across 0 files
+
+
+Searching 40 files for "index.php"
+
+0 matches across 0 files
+
+
+Searching 40 files for "index.php"
+
+0 matches across 0 files

@@ -19,20 +19,33 @@
 
   </script>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
-      <script type="text/javascript">
+  <script type="text/javascript">
+        var $nav = $("#menu-list");
+
         $("#menu-trigger").click(function(event) {
           event.preventDefault();
           if ($(window).outerWidth() < 1100) {
-            $("#menu-list").toggle();
+            $nav.toggle();
           }
         });
-      </script>
 
-      <script type="text/javascript" src="js/vendor/balance-text.js"></script>
+        $(window).resize(function() {
+          if ($(window).outerWidth() < 1100) {
+            $nav.hide();
+          } else {
+            if ($nav.filter(":visible").length === 0) {
+              $nav.show();
+            }
+          }
+          
+        });
+  </script>
 
-      <script type="text/javascript">
+  <script type="text/javascript" src="js/vendor/balance-text.js"></script>
+
+  <script type="text/javascript">
         $("body").on("click", ".animate-scroll", function(e) {
           var $this = $(this);
           var targetOffset = $($this.attr("href")).offset().top;
@@ -43,4 +56,4 @@
             scrollTop: targetOffset+10+"px"
           });
         });
-      </script>
+  </script>
