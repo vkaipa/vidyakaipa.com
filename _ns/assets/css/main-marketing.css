@@ -239,4 +239,8 @@ blockquote {
 	.left a, .right a {
 		text-align: center;
 	}
+
+	.samples-boss a, .rectangles-boss a {
+		width: 100%;
+	}
 }
