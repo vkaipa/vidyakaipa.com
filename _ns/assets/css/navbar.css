@@ -51,6 +51,7 @@
 #menu-trigger {
 	display: inline;
 	line-height: 100px;
+	font-family: "Roboto Slab", "Unica One", sans-serif; 
 }
 
 .btn-group {
@@ -88,6 +89,12 @@
 		width: 160px;
 		border-radius: 4px 0 4px 4px;
 		z-index: 1;
+	}
+}
+
+@media (max-width: 500px){
+	.left a, .right a {
+		text-align: center;
 	}
 
 }

@@ -203,16 +203,7 @@ blockquote {
 
 /********** MEDIA QUERIES **********/
 
-@media (max-width: 770px) {
-
-	.samples-boss a, .rectangles-boss a {
-		padding: 2em;
-		width: 100%;
-	}
-}
-
 @media (max-width: 650px) {
-
 	.logo-vh-center {
 		text-align: center;
     	flex-direction: column;
@@ -228,19 +219,27 @@ blockquote {
 		font-weight: 200;
 	}
 
-	.top .buttons .btn {
-		display: block; 
-		font-size: 1.3em;
-		text-align: center;
-		width: 100%;
-		margin: 15px 0;
+
+	.quote img {
+		margin: auto;
+		float: none;
 	}
 
-	.left a, .right a {
-		text-align: center;
+	.buckets li {
+	padding-left: 0;
 	}
 
-	.samples-boss a, .rectangles-boss a {
-		width: 100%;
+	.two-column {
+	  columns: 1;
+	  -webkit-columns: 1;
+	  -moz-columns: 1;
+	}
+
+	.flex {
+	width: 100%;
+	}
+
+	img {
+		height: 200px;
 	}
 }

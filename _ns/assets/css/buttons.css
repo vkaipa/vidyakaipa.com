@@ -70,3 +70,14 @@
 	color: #545454;
 	border: 2px solid transparent;
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 500px) {
+	.top .buttons .btn {
+		display: block; 
+		font-size: 1.3em;
+		text-align: center;
+		width: 100%;
+		margin: 15px 0;
+	}
+}

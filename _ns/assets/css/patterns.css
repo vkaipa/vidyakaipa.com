@@ -121,3 +121,19 @@
 	background-image: linear-gradient(-138deg, #EDE738 0%, #EBE536 25%, #E5DD2D 61%, #A69C11 100%);
 }
 
+/* MEDIA QUERIES */
+
+@media (max-width: 770px) {
+
+	.samples-boss a, .rectangles-boss a {
+		padding: 2em;
+		width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.samples-boss a, .rectangles-boss a {
+		width: 100%;
+	}
+}
+
