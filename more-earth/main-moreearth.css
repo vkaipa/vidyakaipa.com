@@ -1,0 +1,201 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0; 
+	padding:0; 
+	border:0; 
+	outline:0; 
+	font-size:100%; 
+	vertical-align:center; 
+	background:transparent;} 
+	body {line-height: 1;}
+	ol, 
+	ul{list-style:none;} 
+	blockquote, 
+	q{quotes:none;} 
+	blockquote:before, 
+	blockquote:after, 
+	q:before, 
+	q:after{content:'';content:none;} 
+	:focus{outline:0;} 
+	ins{text-decoration:none;} 
+	del{text-decoration:line-through;} 
+	table{border-collapse:collapse; 
+	border-spacing:0;
+}
+
+head, body {
+	font-family: "Avenir Next Condensed", sans-serif;
+}
+
+.hero { 
+  background: url("bishop-background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 700px;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 2em;
+}
+
+h2 {
+	font-weight: 400;
+	font-size: 1em;
+}
+
+nav {
+	min-height: 60px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	display: block;
+	opacity: .6;
+	position: relative;
+	padding: 1px;
+}
+
+nav p {
+	font-weight: 600;
+	margin: 14px 10px 14px 40px;
+	color: white;
+	text-transform: uppercase;
+	font-size: 2em;
+}
+
+nav ul {
+	padding: 12px;
+}
+
+nav li {
+	font-family: "Avenir Next", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	display: inline-block;
+	margin: 12px 20px;
+	padding: 0;
+	vertical-align: middle;
+	line-height: 100%;
+}
+
+nav a {
+	list-style: none;
+	text-decoration: none;
+	color: white;
+}
+
+nav a#pull {
+  	display: none;
+}   
+
+.tagline {
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	font-size: 3em;
+	opacity: .75;
+	margin: 60px 20px;
+}
+
+.tagline h1 {
+	letter-spacing: 20px
+}
+
+.tagline h2 {
+	letter-spacing: 10px
+}
+
+#blog {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: rgba(176, 148, 112, .40);
+}
+
+/*.blog ul {
+	max-width: 100%;
+}*/
+
+#blog li {
+	float: left;
+	width: 44%;
+	margin: 1.5%;
+	background-color: #dddddd;
+	padding: 1.5%;
+}
+
+#blog li p {
+	text-align: center;
+	padding: 10px;
+}
+
+/*MEDIA QUERY*/
+@media only screen and (min-width : 750px) {
+
+nav p {
+	position: absolute;
+}
+
+nav ul {
+	float: right;
+}
+
+/*
+	header {
+		position: absolute;
+	}
+
+  	nav { 
+      	height: auto;
+    }
+
+    nav ul, nav:active ul {
+      	display: none;
+      	position: absolute;
+    	padding: 20px;
+		background: #fff;
+		border: 2px solid #444;
+		top: 60px;
+		width: 100%;
+		border-radius: 4px 0 4px 4px; 
+    	height: auto;
+    }
+
+    nav li {
+      	width: 100%;
+      	text-align: center;
+      	margin: 0;
+      	float: left;
+      	position: relative;
+    }
+
+    nav li a {
+    	border-bottom: 1px solid #576979;
+    	border-right: 1px solid #576979;
+  	}
+
+    nav a {
+      	text-align: left;
+      	width: 100%;
+    }
+
+	nav:hover ul {
+		display: block;
+	}
+
+	nav a#pull:after {
+    	content:"";
+    	background: url('nav-icon.png') no-repeat;
+    	width: 30px;
+    	height: 30px;
+    	display: inline-block;
+    	position: absolute;
+    	right: 15px;
+    	top: 10px;
+  }
+
+  */
