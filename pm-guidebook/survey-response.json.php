@@ -1,20 +1,27 @@
+
 <?PHP
 /*
 SYNCING CCB PROFILE DATA TO TYPEFORM
 Simple tutorial to add CCB profiles from Typeform survey(s)
 */
+
+
+
 // contains resusable globals and functions
-include("includes/config.php");
+include('config/credentials.php');
+
+
+
 // Typeform Credentials
 // set the Typeform API key - read About API Keys: https://www.typeform.com/help/data-api/
-$tfApiKey = '56ueZ1BB8WWktJQEWdBfYetMSGKWwhezFQjUvsRyqxQ9';
+$tfApiKey = $TYPEFORM_API_KEY;
 
 // set taret url
-$url = 'https://api.typeform.com/forms/W480Qz/responses?key='.$tfApiKey;
+$url = 'https://api.typeform.com/forms/W480Qz/responses';
 
 $headers = array(
     'Content-Type: application/json',
-    'Authorization: Bearer 56ueZ1BB8WWktJQEWdBfYetMSGKWwhezFQjUvsRyqxQ9'
+    'Authorization: Bearer '.$TYPEFORM_API_KEY;
 );
 
 $ch = curl_init();
