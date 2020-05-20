@@ -1,6 +1,4 @@
-// contains resusable globals and functions
-<?php include('config/credentials.php'); ?>
-
+<?php include('./config/credentials.php'); ?>
 
 <?php
 $servername = $MYSQL_SERVER;

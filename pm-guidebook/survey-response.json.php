@@ -1,4 +1,3 @@
-
 <?PHP
 /*
 SYNCING CCB PROFILE DATA TO TYPEFORM
@@ -8,7 +7,7 @@ Simple tutorial to add CCB profiles from Typeform survey(s)
 
 
 // contains resusable globals and functions
-include('config/credentials.php');
+include('./config/credentials.php');
 
 
 // TODO remake api key
@@ -21,7 +20,7 @@ $url = 'https://api.typeform.com/forms/W480Qz/responses';
 
 $headers = array(
     'Content-Type: application/json',
-    'Authorization: Bearer '.$TYPEFORM_API_KEY;
+    "Authorization: Bearer {$TYPEFORM_API_KEY}"
 );
 
 $ch = curl_init();
@@ -35,8 +34,6 @@ curl_close($ch);
 <hr>
 
 <?PHP
-
-$response = json_decode($result,true);
 
 echo $response;
 
