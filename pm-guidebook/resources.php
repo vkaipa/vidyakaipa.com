@@ -13,14 +13,14 @@ $skill_ids = $_GET['skills'];
 
 $skill_ids = explode(',', $skill_ids);
 
-$skill_ids_mysql = "";
+$skill_ids_mysql = "WHERE";
 
 $i = 0;
 foreach ($skill_ids as $s) {
     $i++;
 
     $skill_ids_mysql .= "
-    WHERE resources.skill_id = ".$s;
+     resources.skill_id = ".$s;
 
     if ($i != count($skill_ids)) {
         $skill_ids_mysql .= " or ";

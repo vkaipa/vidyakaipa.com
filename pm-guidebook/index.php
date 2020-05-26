@@ -41,7 +41,7 @@
   </div>
 </header>
 
-<div class="results flex">
+<div class="results flex" style='display: none;'>
   <div class="breakdown">
     <div class="circle">
       <p class="percent">45%</p>
@@ -90,10 +90,8 @@
 </div>
 
 
-  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
 
   <script type="text/javascript" src='tf_to_skills.js'></script>
   <script type="text/javascript" src='https://cdnjs.com/libraries/handlebars.js'></script>
@@ -102,7 +100,7 @@
     <li><a href="{{url}}">{{title}}</a> by {{author}}</li>
   </script>
 
-  <script src="js/main.js"></script>
+  <script src="assets/main.js"></script>
 
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
