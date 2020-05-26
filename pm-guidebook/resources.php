@@ -48,9 +48,9 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
   $book = null;
-	$book->author = $row["author"];
-	$book->url = $row["url"];
-	$book->title = $row["title"];
+	$book->author = htmlspecialchars($row['author']);
+  $book->url = htmlspecialchars($row['url']);
+	$book->title = htmlspecialchars($row['title']);
 
 	if ( $requested_resources[$row["skill_id"]] ) {
 		array_push($requested_resources[$row["skill_id"]], $book);
