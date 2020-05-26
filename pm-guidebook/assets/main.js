@@ -4,12 +4,17 @@
 		return "/pm-guidebook/"+path;
 	}
 
+	function getParams() {
+		var search = location.search.substring(1);
+		return JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+	}
+
 	function surveyTool() {
 		getSurveyResponse(function(survey) {
 			var userData = findUserByEmail(survey.items);
 			var resourcesHtml;
 
-			surveyToResourceAlogrithm(userData, resources, function(resources) {
+			surveyToResourceAlogrithm(userData, function(resources) {
 				resourcesHtml = Handlebars.compile( $("#resourceItem").html() )(resources);
 				$("#resources-results").html( resourcesHtml );
 			});
@@ -21,11 +26,6 @@
 		$.get( getURL("survey-response.json.php"), function( data ) {
 		  callback( JSON.parse(data) );
 		});	
-	}
-
-	function getParams() {
-		var search = location.search.substring(1);
-		return JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
 	}
 
 	function findUserByEmail(surveyData) {
@@ -46,7 +46,7 @@
 		return userData || null;
 	}
 
-	function surveyToResourceAlogrithm(surveyData, resources, callback) {
+	function surveyToResourceAlogrithm(surveyData, callback) {
 		var skills = [];
 		var map = getQuestionToSkillMap();
 		var results = [];
@@ -55,21 +55,21 @@
 			return [];
 		}
 
-		surveyData.forEach(function(surveyResponse) {
-			if (surveyResponse.rating <= 3) {
+		surveyData.answers.forEach(function(answer) {
+			if (answer.number <= 3) {
 				skills.push(surveyResponse);
 			}
 		});
 
 		skills.map(function(qualifiedSurveyResponse) {
-			return map[qualifiedSurveyResponse.id];
+			return map[qualifiedSurveyResponse.field.id];
 		});
 
 		getResources(skills, callback);
 	}
 
 	function getQuestionToSkillMap() {
-		return survey_resource_map;
+		return surveyResourceMap;
 	}
 
 	function getResources(skills, callback) {

@@ -1,4 +1,4 @@
-var survey_resource_map = {
+var surveyResourceMap = {
 	"zjf5l2DiVPUq": 1,
 	"jMC2KIkQQw3K": 2,
 	"fn2U43Dx9dyx": 3, 
