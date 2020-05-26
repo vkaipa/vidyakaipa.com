@@ -93,8 +93,8 @@
   <script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src='surveyResourceMap.js'></script>
-  <script type="text/javascript" src='https://cdnjs.com/libraries/handlebars.js'></script>
+  <script type="text/javascript" src='assets/surveyResourceMap.js'></script>
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
 
   <script type='text/template' id='resourceItem'>
     <li><a href="{{url}}">{{title}}</a> by {{author}}</li>

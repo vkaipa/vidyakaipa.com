@@ -1,5 +1,6 @@
-
 <?php
+header("Conent-type: application/json");
+
 include('./config/credentials.php');
 $requested_resources = [];
 

@@ -12,20 +12,37 @@
 	function surveyTool() {
 		getSurveyResponse(function(survey) {
 			var userData = findUserByEmail(survey.items);
-			var resourcesHtml;
 
 			surveyToResourceAlogrithm(userData, function(resources) {
-				resourcesHtml = Handlebars.compile( $("#resourceItem").html() )(resources);
-				$("#resources-results").html( resourcesHtml );
+				var resourceHTML = "";
+
+				for (var key in resources) {
+					if (resources.hasOwnProperty(key)) {
+						resourceHTML += "<h3>Skill id: "+ key+"</h3>";
+						resources[key].forEach(function(resource) {
+							resourceHTML += Handlebars.compile( $("#resourceItem").html() )(resource);
+						});
+					}
+				}
+
+				$("#resources-results").html( resourceHTML );
 			});
 
 		});
 	}
 
 	function getSurveyResponse(callback) {
-		$.get( getURL("survey-response.json.php"), function( data ) {
-		  callback( JSON.parse(data) );
-		});	
+		// $.getJSON( getURL("survey-response.json.php"), function( data ) {
+		//   callback( JSON.parse(data) );
+		// });	
+
+		$.ajax({
+		  dataType: "json",
+		  url: getURL("survey-response.json.php"),
+		  success: function(data) {
+		  	callback(data);
+		  }
+		});
 	}
 
 	function findUserByEmail(surveyData) {
@@ -51,21 +68,21 @@
 		var map = getQuestionToSkillMap();
 		var results = [];
 
-		if (!surveyData || !resources) {
+		if (!surveyData) {
 			return [];
 		}
 
 		surveyData.answers.forEach(function(answer) {
 			if (answer.number <= 3) {
-				skills.push(surveyResponse);
+				skills.push(answer);
 			}
 		});
 
-		skills.map(function(qualifiedSurveyResponse) {
+		skills = skills.map(function(qualifiedSurveyResponse) {
 			return map[qualifiedSurveyResponse.field.id];
 		});
 
-		getResources(skills, callback);
+		getResources(skills.flat(), callback);
 	}
 
 	function getQuestionToSkillMap() {
@@ -75,8 +92,8 @@
 	function getResources(skills, callback) {
 		skills = skills.join(",");
 
-		$.get( getURL("resources.php?skills"+skills), function( data ) {
-		  callback( JSON.parse(data) );
+		$.getJSON( getURL("resources.php?skills="+skills), function( data ) {
+		  callback( data );
 		});	
 	}
 	surveyTool();

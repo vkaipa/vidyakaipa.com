@@ -5,6 +5,7 @@ Simple tutorial to add CCB profiles from Typeform survey(s)
 */
 
 
+header("Conent-type: application/json");
 
 // contains resusable globals and functions
 include('./config/credentials.php');
@@ -29,20 +30,5 @@ curl_setopt($ch, CURLOPT_URL, $url);
 
 $result = curl_exec($ch);
 curl_close($ch);
-
-?>
-<hr>
-
-<?PHP
-
-echo $response;
-
-foreach ($response["items"] as $v) {
-    echo "Current value of \$a: $v.\n";
-}
-
-
-
-
 
 ?>
