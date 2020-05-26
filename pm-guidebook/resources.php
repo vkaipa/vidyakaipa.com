@@ -7,15 +7,29 @@ $servername = $MYSQL_SERVER;
 $username = $MYSQL_USER;
 $password = $MYSQL_PASSWORD;
 $dbname = $DBNAME;
-$skill_ids = [$_GET['skills']];
+//preg_replace('/[^0-9]/', '', $_GET['skills'])
+
+$skill_ids = $_GET['skills'];
+
+$skill_ids = explode(',', $skill_ids);
+
 print_r($skill_ids);
+
 $skill_ids_mysql = "";
 
-foreach (@skill_ids as $s) {
-    $skill_ids_mysql += "WHERE resources.skill_id = ".$s;
-}
+$i = 0;
+foreach ($skill_ids as $s) {
+    $i++;
 
-echo $skill_ids_mysql;
+    $skill_ids_mysql .= "
+    WHERE resources.skill_id = ".$s;
+
+    if ($i != count($skill_ids)) {
+        $skill_ids_mysql .= " or ";
+    }
+
+
+}
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -28,8 +42,11 @@ if ($conn->connect_error) {
 
 $sql = "SELECT resources.title, resources.author, resources.url, resources.skill_id, skills.skill, skills.category
 FROM `resources`
-LEFT JOIN `skills` on skills.skill_id = resources.skill_id
-WHERE resources.skill_id = 2 or resources.skill_id = 5";
+LEFT JOIN `skills` on skills.skill_id = resources.skill_id ".$skill_ids_mysql;
+
+echo $sql;
+
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
