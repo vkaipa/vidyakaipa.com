@@ -1,4 +1,5 @@
 (function() {
+	var loadingMessage;
 
 	function getURL(path) {
 		return "/pm-guidebook/"+path;
@@ -10,10 +11,18 @@
 	}
 
 	function surveyTool() {
+		loadingMessage = new Vue({
+			el: '#loadingMessage',
+			data: {
+				message: 'Finding Survey'
+			}
+		});
+		$("#loadingMessage").removeClass("hidden");
+
 		getSurveyResponse(function(survey) {
 			var userData = findUserByEmail(survey.items);
 
-			surveyToResourceAlogrithm(userData, function(resources) {
+			surveyToResourceAlgorithm(userData, function(resources) {
 				var resourceHTML = "";
 
 				for (var key in resources) {
@@ -25,6 +34,7 @@
 					}
 				}
 
+				loadingMessage.message = "Your Resources based on your Answers.";
 				$("#resources-results").html( resourceHTML );
 			});
 
@@ -34,7 +44,7 @@
 	function getSurveyResponse(callback) {
 		// $.getJSON( getURL("survey-response.json.php"), function( data ) {
 		//   callback( JSON.parse(data) );
-		// });	
+		// });
 
 		$.ajax({
 		  dataType: "json",
@@ -63,7 +73,7 @@
 		return userData || null;
 	}
 
-	function surveyToResourceAlogrithm(surveyData, callback) {
+	function surveyToResourceAlgorithm(surveyData, callback) {
 		var skills = [];
 		var map = getQuestionToSkillMap();
 		var results = [];
@@ -90,11 +100,12 @@
 	}
 
 	function getResources(skills, callback) {
-		skills = skills.join(",");
+		loadingMessage.message = "Getting Resources";
 
+		skills = skills.join(",");
 		$.getJSON( getURL("resources.php?skills="+skills), function( data ) {
 		  callback( data );
-		});	
+		});
 	}
 	surveyTool();
 

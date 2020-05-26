@@ -9,17 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  
+
   <!-- Place favicon.ico in the root directory -->
   <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/normalize.css">
   <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/main.css">
-
-  <!-- UIkit CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />
-
-  <!-- UIkit JS -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -69,7 +62,7 @@
       <li>Stakeholder Management</li>
     </ul>
   </div>
- 
+
 
   </div>
 </div>
@@ -79,8 +72,12 @@
 <div class="results">
   <h2>Recommended Reading</h2>
 
+  <div id="loadingMessage" class='centered hidden'>
+    <p>{{ message }}</p>
+  </div>
+
   <ul id='resources-results' class="uk-list uk-list-bullet">
-    
+
   </ul>
 
 </div>
@@ -89,7 +86,7 @@
     <p>Created by Vidya Kaipa, inspired by Sebastien Phlix</p>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
   <script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
