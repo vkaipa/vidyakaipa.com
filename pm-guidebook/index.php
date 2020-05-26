@@ -78,45 +78,13 @@
 
 <div class="results">
   <h2>Recommended Reading</h2>
-  
-  <ul uk-accordion="multiple: true">
-    <li class="uk-open">
-      <a class="uk-accordion-title" href="#">
-        <h3 class="uk-heading-line"><span>Product Artifacts</span></h3>
-      </a> 
-      <div class="uk-accordion-content">
-        <ul class="uk-list uk-list-bullet">
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <a class="uk-accordion-title" href="#">
-        <h3 class="uk-heading-line"><span>Communication</span></h3>
-      </a> 
-      <div class="uk-accordion-content">
-        <ul class="uk-list uk-list-bullet">
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <a class="uk-accordion-title" href="#">
-        <h3 class="uk-heading-line"><span>Stakeholder Management</span></h3>
-      </a> 
-      <div class="uk-accordion-content">
-        <ul class="uk-list uk-list-bullet">
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-          <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-        </ul>
-      </div>
-    </li>
+
+  <ul class="uk-list uk-list-bullet">
+    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
+    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
+    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
   </ul>
+
 </div>
 
 <div class="footer">
@@ -124,15 +92,13 @@
 </div>
 
 
-
-
-
-
-
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
+
+  <script type="text/javascript" src='tf_to_skills.js'></script>
+
   <script src="js/main.js"></script>
 
 

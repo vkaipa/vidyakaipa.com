@@ -28,8 +28,8 @@ if ($conn->connect_error) {
 
 $sql = "SELECT resources.title, resources.author, resources.url, resources.skill_id, skills.skill, skills.category
 FROM `resources`
-LEFT JOIN `skills` on skills.skill_id = resources.skill_id
-WHERE resources.skill_id = 2 or resources.skill_id = 5";
+LEFT JOIN `skills` on skills.skill_id = resources.skill_id 
+".$skill_ids_mysql;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
