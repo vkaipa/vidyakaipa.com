@@ -13,8 +13,6 @@ $skill_ids = $_GET['skills'];
 
 $skill_ids = explode(',', $skill_ids);
 
-print_r($skill_ids);
-
 $skill_ids_mysql = "";
 
 $i = 0;

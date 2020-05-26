@@ -79,10 +79,8 @@
 <div class="results">
   <h2>Recommended Reading</h2>
 
-  <ul class="uk-list uk-list-bullet">
-    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
-    <li><a href="#">This is a link</a> by Lorem Ipsum</li>
+  <ul id='resources-results' class="uk-list uk-list-bullet">
+    
   </ul>
 
 </div>
@@ -98,6 +96,11 @@
   <script src="js/plugins.js"></script>
 
   <script type="text/javascript" src='tf_to_skills.js'></script>
+  <script type="text/javascript" src='https://cdnjs.com/libraries/handlebars.js'></script>
+
+  <script type='text/template' id='resourceItem'>
+    <li><a href="{{url}}">{{title}}</a> by {{author}}</li>
+  </script>
 
   <script src="js/main.js"></script>
 

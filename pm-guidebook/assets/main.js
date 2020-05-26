@@ -6,13 +6,16 @@
 
 	function surveyTool() {
 		getResources(function(resources)) {
-			getSurveyResponse(function(survey) {
-				userData = findUserByEmail(survey);
 
+			getSurveyResponse(function(survey) {
+				var userData = findUserByEmail(survey);
+				var resourcesHtml;
 				resources = surveyToResourceAlogrithm(userData, resources);
+
+				resourcesHtml = Handlebars.compile( $("#resourceItem").html() )(resources);
+				$("#resources-results").html( resourcesHtml );
 			});	
 		}
-		
 	}
 
 	function getSurveyResponse(callback) {
@@ -44,13 +47,31 @@
 		return userData || null;
 	}
 
-	function removeQuestionFromDataSet() {}
+	function surveyToResourceAlogrithm(surveyData, resources) {
+		var skills = [];
+		var map = getQuestionToSkillMap();
+		var results = [];
 
-	function surveyToSkill(surveyId) {
+		if (!surveyData || !resources) {
+			return [];
+		}
 
+		surveyData.forEach(function(surveyResponse) {
+			if (surveyResponse.rating <= 3) {
+				skills.push(surveyResponse);
+			}
+		});
+
+		skills.map(function(qualifiedSurveyResponse)) {
+			return map[qualifiedSurveyResponse.id];
+		}
+
+		skills.forEach(function(skill) {
+			results.push( responses[skill] );
+		});
+
+		return results;
 	}
-
-	function surveyToResourceAlogrithm(surveyData, resources) {}
 
 	function getQuestionToSkillMap() {
 		return survey_resource_map;
@@ -61,10 +82,6 @@
 		  callback( JSON.parse(data) );
 		});	
 	}
-
-
-
-
 	surveyTool();
 
 })();
