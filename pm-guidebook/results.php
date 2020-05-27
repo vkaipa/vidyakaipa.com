@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/normalize.css">
   <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/main.css">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="main.css">
@@ -116,6 +117,9 @@
   </script>
 
   <script src="assets/main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
 
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
