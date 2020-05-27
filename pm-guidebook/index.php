@@ -93,6 +93,24 @@
   <script type="text/javascript" src='assets/surveyResourceMap.js'></script>
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
 
+  <script  type='text/template' id='resources'>
+    <ul uk-accordion="multiple: true">
+      <li class="uk-open">
+        <a class="uk-accordion-title" href="#">
+          <h3 class="uk-heading-line"><span>{{skill}}</span></h3>
+        </a> 
+        <div class="uk-accordion-content">
+          <ul class="uk-list uk-list-bullet">
+            {{#each resources}}
+              <li><a href="{{this.url}}">{{title}}</a> by {{author}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </script>
+
+
   <script type='text/template' id='resourceItem'>
     <li><a href="{{url}}">{{title}}</a> by {{author}}</li>
   </script>

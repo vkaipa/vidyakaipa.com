@@ -30,6 +30,11 @@
 	flex-wrap: wrap;
 }
 
+body {
+	margin: 0;
+	padding: 0;
+}
+
 h1, h2, h3, h4, h5, h6, p {
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
@@ -39,10 +44,11 @@ h1, h2, h3, h4, h5, h6, p {
 h2 {
 	font-size: 4em;
 	font-weight: 900;
+	margin-bottom: 0;
 }
 
 h3 {
-	font-size: 1.5em;
+	font-size: 2em;
 	font-weight: 600;
 	margin: 20px 40px;
 }
@@ -58,19 +64,19 @@ h4 {
 	background: #FFBF42;
 }
 
-.footer {
-	height: 5em;
-	background: #000;
-}
-
 .nav p {
 	font-size: 1.6em;
 	letter-spacing: 1em;
 	color: black;
 	font-weight: 700;
 	line-height: 3em;
+	margin: 0;
 }
 
+.footer {
+	height: 5em;
+	background: #000;
+}
 .footer p {
 	font-size: .8em;
 	letter-spacing: .5em;
@@ -78,13 +84,6 @@ h4 {
 	font-weight: 500;
 	line-height: 6em;
 	margin-bottom: 0;
-}
-
-.percent {
-	font-size: 4em;
-	font-weight: 900;
-	padding-top: 60px;
-	color: black;
 }
 
 .results {
@@ -97,13 +96,15 @@ h4 {
 	padding: 0 3em;
 }
 
-.breakdown {
+.pair {
 	width: 50%;
 }
 
-.uk-tile-primary {
-	background-color: #3a3732;
-	border: white 20px solid;
+.percent {
+	font-size: 4em;
+	font-weight: 900;
+	padding-top: 60px;
+	color: black;
 }
 
 .circle {
@@ -112,4 +113,34 @@ h4 {
 	height: 200px;
 	width: 200px;
 	margin: auto;
+}
+
+.uk-tile-primary {
+	background-color: #3a3732;
+	border: white 20px solid;
+}
+
+.resource-list { 
+	text-align: left;
+	font-weight: 200;
+	text-transform: capitalize;
+	padding: 10px;
+}
+
+.contribute { 
+	padding: 2em;
+	background: #f2f5ee;
+}
+
+.quad {
+	max-width: 25%;
+	margin: auto;
+	padding-top: 2em;
+}
+
+.uk-button-default {
+	background: #FFBF42;
+	font-size: 1.2em;
+	line-height: 3em;
+	font-weight: 500;
 }

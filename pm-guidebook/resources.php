@@ -1,5 +1,5 @@
 <?php
-header("Conent-type: application/json");
+header("Content-type: application/json");
 
 include('./config/credentials.php');
 $requested_resources = [];
@@ -52,6 +52,7 @@ if ($result->num_rows > 0) {
 	$book->author = htmlspecialchars($row['author']);
   $book->url = htmlspecialchars($row['url']);
 	$book->title = htmlspecialchars($row['title']);
+  $book->skill = htmlspecialchars($row['skill']);
 
 	if ( $requested_resources[$row["skill_id"]] ) {
 		array_push($requested_resources[$row["skill_id"]], $book);

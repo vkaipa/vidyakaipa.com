@@ -14,7 +14,7 @@
 		loadingMessage = new Vue({
 			el: '#loadingMessage',
 			data: {
-				message: 'Finding Survey'
+				message: 'Processing your responses'
 			}
 		});
 		$("#loadingMessage").removeClass("hidden");
@@ -26,15 +26,19 @@
 				var resourceHTML = "";
 
 				for (var key in resources) {
+
 					if (resources.hasOwnProperty(key)) {
-						resourceHTML += "<h3>Skill id: "+ key+"</h3>";
-						resources[key].forEach(function(resource) {
-							resourceHTML += Handlebars.compile( $("#resourceItem").html() )(resource);
-						});
+						var data = {
+							skill_id: key,
+							resources: resources[key],
+							skill: resources[key][0].skill
+						};
+
+						resourceHTML += Handlebars.compile( $("#resources").html() )(data);
 					}
 				}
 
-				loadingMessage.message = "Your Resources based on your Answers.";
+				loadingMessage.message = "Your Unique PM Guidebook";
 				$("#resources-results").html( resourceHTML );
 			});
 
@@ -100,7 +104,7 @@
 	}
 
 	function getResources(skills, callback) {
-		loadingMessage.message = "Getting Resources";
+		loadingMessage.message = "Creating your customized reading list";
 
 		skills = skills.join(",");
 		$.getJSON( getURL("resources.php?skills="+skills), function( data ) {
