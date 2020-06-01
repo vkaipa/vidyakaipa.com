@@ -48,11 +48,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-  $book = null;
-	$book->author = htmlspecialchars($row['author']);
-  $book->url = htmlspecialchars($row['url']);
-	$book->title = htmlspecialchars($row['title']);
-  $book->skill = htmlspecialchars($row['skill']);
+    $book = new stdClass();
+	$book->author = htmlspecialchars($row['author'], ENT_SUBSTITUTE);
+    $book->url = htmlspecialchars($row['url']);
+
+	$book->title = htmlspecialchars($row['title'], ENT_SUBSTITUTE);
+    $book->skill = htmlspecialchars($row['skill']);
 
 	if ( $requested_resources[$row["skill_id"]] ) {
 		array_push($requested_resources[$row["skill_id"]], $book);
