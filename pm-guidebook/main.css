@@ -30,9 +30,16 @@
 	flex-wrap: wrap;
 }
 
+html { 
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	display: flex; 
+	flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -50,7 +57,9 @@ h2 {
 h3 {
 	font-size: 2em;
 	font-weight: 600;
-	margin: 20px 40px;
+	margin: auto;
+	max-width: 1000px;
+	text-align: center;
 }
 
 h4 {
@@ -59,6 +68,7 @@ h4 {
 	margin: 20px 40px;
 }
 
+/* Nav */
 .nav {
 	height: 5em;
 	background: #FFBF42;
@@ -73,38 +83,48 @@ h4 {
 	margin: 0;
 }
 
-.footer {
-	height: 5em;
-	background: #000;
-}
-.footer p {
-	font-size: .8em;
-	letter-spacing: .5em;
-	color: white;
-	font-weight: 500;
-	line-height: 6em;
-	margin-bottom: 0;
+.nav a { 
+	text-decoration: none;
+	color: black;
 }
 
+.nav a:hover { 
+	color: #4e4e4e;
+}
+
+/* Body */
 .results {
 	width: 100%;
 	margin: auto;
 	padding: 2em 0;
+	max-width: 1000px;
 }
 
 .results ul {
 	padding: 0 3em;
 }
 
-.pair {
-	width: 50%;
+/* Body - Explanation */
+.explanation {
+	max-width: 700px;
+	margin: auto;
+	padding: 2em;
 }
 
-.percent {
-	font-size: 4em;
-	font-weight: 900;
-	padding-top: 60px;
-	color: black;
+.explanation p {
+	text-transform: none;
+	text-align: left;
+}
+
+.content {
+	flex: 1 0 auto;
+}
+
+
+/* Body - Summary */
+.pair {
+	width: 50%;
+	background: #f2f5ee;
 }
 
 .circle {
@@ -115,10 +135,19 @@ h4 {
 	margin: auto;
 }
 
+.percent {
+	font-size: 4em;
+	font-weight: 900;
+	padding-top: 60px;
+	color: black;
+}
+
 .uk-tile-primary {
 	background-color: #3a3732;
 	border: white 20px solid;
 }
+
+/* Body - Resources */
 
 .resource-list { 
 	text-align: left;
@@ -126,6 +155,8 @@ h4 {
 	text-transform: capitalize;
 	padding: 10px;
 }
+
+/* Body - Contribute */
 
 .contribute { 
 	padding: 2em;
@@ -143,4 +174,31 @@ h4 {
 	font-size: 1.2em;
 	line-height: 3em;
 	font-weight: 500;
+}
+
+
+/* Footer */
+.footer {
+	height: 5em;
+	background: #000;
+	flex-shrink: 0;
+
+}
+.footer p {
+	font-size: .8em;
+	letter-spacing: .5em;
+	color: white;
+	font-weight: 500;
+	line-height: 6em;
+	margin-bottom: 0;
+}
+
+@media only screen and (max-width: @600px) {
+	h2 { 
+		font-size: 2em;
+	}
+
+	h3 { 
+		font-size: 1em;
+	}
 }
