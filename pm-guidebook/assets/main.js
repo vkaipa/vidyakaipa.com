@@ -14,9 +14,10 @@
 		loadingMessage = new Vue({
 			el: '#loadingMessage',
 			data: {
-				message: 'Processing your responses'
+				message: 'Processing your responses. Take a few deep breaths...'
 			}
 		});
+
 		$("#loadingMessage").removeClass("hidden");
 
 		getSurveyResponse(function(survey) {
@@ -44,10 +45,10 @@
 				setTimeout(function() {
 					UIkit.accordion('.uk-accordion').toggle(0, true);
 				}, 500);
-				
 			});
-
 		});
+
+
 	}
 
 	function getSurveyResponse(callback) {
