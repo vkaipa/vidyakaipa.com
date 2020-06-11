@@ -63,8 +63,7 @@
 	// TODO: Find with code as well.
 	function findUserByEmail(surveyData) {
 		var params = getParams();
-		var email = params["email"];
-		var userCode = params["code"];
+		var emailPlusCode = params["r"];
 		var userData;
 
 		if (!surveyData || surveyData.length === 0) {
@@ -72,8 +71,10 @@
 		}
 		
 		surveyData.forEach(function(response) {
-			if (!userData && response.answers[0].email === email && response.answers[1].text == userCode) {
+			if (!userData && (response.answers[0].email+'-'+response.answers[1].text) === emailPlusCode) {
 				userData = response;
+			} else {
+				loadingMessage.message = "We could not find the results.";
 			}
 		});
 
