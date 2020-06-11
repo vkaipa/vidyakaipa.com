@@ -41,6 +41,10 @@
 
 				loadingMessage.message = "Your Unique PM Guidebook";
 				$("#resources-results").html( resourceHTML );
+				setTimeout(function() {
+					UIkit.accordion('.uk-accordion').toggle(0, true);
+				}, 500);
+				
 			});
 
 		});
