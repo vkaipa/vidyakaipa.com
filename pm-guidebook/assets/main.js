@@ -31,7 +31,8 @@
 						var data = {
 							skill_id: key,
 							resources: resources[key],
-							skill: resources[key][0].skill
+							skill: resources[key][0].skill,
+							image_path: resources[key][0].image_path
 						};
 
 						resourceHTML += Handlebars.compile( $("#resources").html() )(data);
@@ -59,17 +60,19 @@
 		});
 	}
 
+	// TODO: Find with code as well.
 	function findUserByEmail(surveyData) {
 		var params = getParams();
 		var email = params["email"];
+		var userCode = params["code"];
 		var userData;
 
 		if (!surveyData || surveyData.length === 0) {
 			return;
 		}
-
+		
 		surveyData.forEach(function(response) {
-			if (!userData && response.answers[0].email === email) {
+			if (!userData && response.answers[0].email === email && response.answers[1].text == userCode) {
 				userData = response;
 			}
 		});
@@ -111,6 +114,8 @@
 		  callback( data );
 		});
 	}
+
+
 	surveyTool();
 
 })();

@@ -1,3 +1,4 @@
 .idea
 .idea/*
 pm-guidebook/config/credentials.php
+.DS_Store

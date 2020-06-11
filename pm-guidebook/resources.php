@@ -39,7 +39,7 @@ if ($conn->connect_error) {
 }
 //echo "Connected successfully";
 
-$sql = "SELECT resources.title, resources.author, resources.url, resources.skill_id, skills.skill, skills.category
+$sql = "SELECT resources.title, resources.author, resources.url, resources.skill_id, skills.skill, skills.category, skills.image_path
 FROM `resources`
 LEFT JOIN `skills` on skills.skill_id = resources.skill_id ".$skill_ids_mysql;
 
@@ -49,10 +49,10 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     $book = new stdClass();
-	$book->author = htmlspecialchars($row['author'], ENT_SUBSTITUTE);
+  	$book->author = htmlspecialchars($row['author'], ENT_SUBSTITUTE);
     $book->url = htmlspecialchars($row['url']);
-
-	$book->title = htmlspecialchars($row['title'], ENT_SUBSTITUTE);
+    $book->image_path = $row['image_path'];
+  	$book->title = htmlspecialchars($row['title'], ENT_SUBSTITUTE);
     $book->skill = htmlspecialchars($row['skill']);
 
 	if ( $requested_resources[$row["skill_id"]] ) {

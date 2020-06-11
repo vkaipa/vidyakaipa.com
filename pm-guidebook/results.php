@@ -76,6 +76,7 @@
 
 <!-- END RESOURCES SECTION -->
   <div class="results">
+    <img src="assets/img/undraw_resources.svg"/>
     <h2>Recommended Reading</h2>
     <div id="loadingMessage" class='centered hidden'>
       <p>{{ message }}</p>
@@ -130,15 +131,19 @@
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
 
   <script type='text/template' id='resources'>
-    <ul uk-accordion="multiple: true">
-      <li class="uk-open">
+    <ul uk-accordion>
+      <li>
         <a class="uk-accordion-title" href="#">
           <h3 class="uk-heading-line"><span>{{skill}}</span></h3>
         </a> 
+  
         <div class="uk-accordion-content">
-          <ul uk-accordion="collapsible: false" class="uk-list uk-list-bullet">
+          <img src='{{image_path}}'>
+          <ul uk-accordion class="uk-list uk-list-bullet">
             {{#each resources}}
-              <li><a href="{{this.url}}">{{title}}</a> by {{author}}</li>
+              <li>
+                <a href="{{this.url}}">{{title}}</a> by {{author}}
+              </li>
             {{/each}}
           </ul>
         </div>

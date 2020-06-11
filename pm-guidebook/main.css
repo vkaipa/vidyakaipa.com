@@ -49,13 +49,13 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h2 {
-	font-size: 4em;
+	font-size: 3em;
 	font-weight: 900;
 	margin-bottom: 0;
 }
 
 h3 {
-	font-size: 2em;
+	font-size: 1.8em;
 	font-weight: 600;
 	margin: auto;
 	max-width: 1000px;
@@ -66,6 +66,12 @@ h4 {
 	text-align: left;
 	font-weight: 400;
 	margin: 20px 40px;
+}
+
+img {
+	max-width: 250px;
+	margin: auto;
+	display: block;
 }
 
 /* Nav */
@@ -104,22 +110,6 @@ h4 {
 	padding: 0 3em;
 }
 
-/* Body - Explanation */
-.explanation {
-	max-width: 700px;
-	margin: auto;
-	padding: 2em;
-}
-
-.explanation p {
-	text-transform: none;
-	text-align: left;
-}
-
-.content {
-	flex: 1 0 auto;
-}
-
 
 /* Body - Summary */
 .pair {
@@ -156,6 +146,11 @@ h4 {
 	padding: 10px;
 }
 
+li a { 
+	color: #504d8e;
+	font-weight:600;
+}
+
 /* Body - Contribute */
 
 .contribute { 
@@ -167,13 +162,14 @@ h4 {
 	max-width: 25%;
 	margin: auto;
 	padding-top: 2em;
+	line-height: 18px;
 }
 
 .uk-button-default {
 	background: #FFBF42;
-	font-size: 1.2em;
-	line-height: 3em;
+	line-height: 2em;
 	font-weight: 500;
+	padding: 1em;
 }
 
 
