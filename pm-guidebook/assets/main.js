@@ -1,5 +1,8 @@
 (function() {
 	var loadingMessage;
+	var getResultsTimer = 0;
+	var timesTried = 0;
+	const MAX_TIMES_TRIED = 30;
 
 	function getURL(path) {
 		return "/pm-guidebook/"+path;
@@ -14,39 +17,54 @@
 		loadingMessage = new Vue({
 			el: '#loadingMessage',
 			data: {
-				message: 'Processing your responses'
+				message: 'Processing your responses. It takes several moments to load the first time.'
 			}
 		});
 		$("#loadingMessage").removeClass("hidden");
 
+		getResults();
+	}
+
+	function getResults() {
+		console.log("Fetching...")
+		clearTimeout(getResultsTimer);
 		getSurveyResponse(function(survey) {
+			timesTried++;
+
 			var userData = findUserByEmail(survey.items);
 
-			surveyToResourceAlgorithm(userData, function(resources) {
-				var resourceHTML = "";
-
-				for (var key in resources) {
-
-					if (resources.hasOwnProperty(key)) {
-						var data = {
-							skill_id: key,
-							resources: resources[key],
-							skill: resources[key][0].skill,
-							image_path: resources[key][0].image_path
-						};
-
-						resourceHTML += Handlebars.compile( $("#resources").html() )(data);
-					}
+			if (!userData) {
+				if (MAX_TIMES_TRIED == timesTried) {
+					loadingMessage.message = "We could not find your results :( Try again later.";
+				} else {
+					getResultsTimer = setTimeout(getResults, 1000);
 				}
+			} else {
+				surveyToResourceAlgorithm(userData, function(resources) {
+					var resourceHTML = "";
 
-				loadingMessage.message = "Your Unique PM Guidebook";
-				$("#resources-results").html( resourceHTML );
-				setTimeout(function() {
-					UIkit.accordion('.uk-accordion').toggle(0, true);
-				}, 500);
-				
-			});
+					for (var key in resources) {
 
+						if (resources.hasOwnProperty(key)) {
+							var data = {
+								skill_id: key,
+								resources: resources[key],
+								skill: resources[key][0].skill,
+								image_path: resources[key][0].image_path
+							};
+
+							resourceHTML += Handlebars.compile( $("#resources").html() )(data);
+						}
+					}
+
+					loadingMessage.message = "Your Unique PM Guidebook";
+					$("#resources-results").html( resourceHTML );
+					setTimeout(function() {
+						UIkit.accordion('.uk-accordion').toggle(0, true);
+					}, 500);
+
+				});
+			}
 		});
 	}
 
@@ -73,12 +91,10 @@
 		if (!surveyData || surveyData.length === 0) {
 			return;
 		}
-		
+
 		surveyData.forEach(function(response) {
 			if (!userData && (response.answers[0].email+'-'+response.answers[1].text) === emailPlusCode) {
 				userData = response;
-			} else {
-				loadingMessage.message = "We could not find the results.";
 			}
 		});
 
