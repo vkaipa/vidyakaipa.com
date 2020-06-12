@@ -7,18 +7,13 @@
   <title>PM Guidebook</title>
   <meta name="description" content="Curated reading lists designed to accelerate your product career">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
 
-  <!-- Place favicon.ico in the root directory -->
-  <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/normalize.css">
-  <link rel="stylesheet" href="assets/vendor/html5-boilerplate_v7.3.0/css/main.css">
-
   <!-- UIkit CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="assets/main.css">
 </head>
 
 
@@ -30,7 +25,7 @@
 
   <!-- Add your site or application content here -->
 
-<!-- START HEADER SECTION -->    
+<!-- START HEADER SECTION -->
   <header>
     <div class="nav">
       <p>PM Guidebook</p>
@@ -39,7 +34,7 @@
 <!-- END HEADER SECTION -->
 
 
-<!-- START PERCENTAGE SECTION --> 
+<!-- START PERCENTAGE SECTION -->
   <div class="results flex" style="display:none">
 
     <div class="pair">
@@ -112,7 +107,7 @@
         </p>
       </div>
     </div>
-  </div>    
+  </div>
 <!-- END CONTRIBUTE SECTION -->
 
 
@@ -135,8 +130,8 @@
       <li>
         <a class="uk-accordion-title" href="#">
           <h3 class="uk-heading-line"><span>{{skill}}</span></h3>
-        </a> 
-  
+        </a>
+
         <div class="uk-accordion-content">
           <img src='{{image_path}}'>
           <ul uk-accordion class="uk-list uk-list-bullet">
