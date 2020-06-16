@@ -20,14 +20,3 @@ var surveyResourceMap = {
 	"nF1PZoE8V1jW": 24, 
 	"XQ3qug91o1Si": 25
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -98,7 +98,28 @@
 			}
 		});
 
+		if (!userData) {
+			userData = {}
+			userData.answers = getUserDataFromURL();
+		}
+
 		return userData || null;
+	}
+
+	function getUserDataFromURL() {
+		var answers = [];
+		var params = getParams();
+
+		for (var key in params) {
+			answers.push({
+				number: params[key],
+				field: {
+					id: key
+				}
+			})
+		}
+
+		return answers;
 	}
 
 	function surveyToResourceAlgorithm(surveyData, callback) {
