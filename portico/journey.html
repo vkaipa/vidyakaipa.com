@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sutra — User Journey Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rausch: #FF5A5F;
+      --babu: #00A699;
+      --arches: #FC642D;
+      --hof: #484848;
+      --foggy: #767676;
+      --bg: #F7F7F7;
+      --surface: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #1A1A1A;
+      --text-2: #4B5563;
+      --text-3: #9CA3AF;
+      --r: 10px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .map-header {
+      background: var(--hof);
+      color: white;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .map-header-left { display: flex; align-items: center; gap: 16px; }
+    .map-logo {
+      background: var(--rausch);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .map-title { font-size: 18px; font-weight: 700; }
+    .map-subtitle { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .map-meta { font-size: 12px; color: rgba(255,255,255,0.45); text-align: right; line-height: 1.8; }
+    .mode-switcher {
+      display: flex; align-items: center; gap: 2px;
+      background: rgba(255,255,255,0.08); border-radius: 8px; padding: 3px;
+    }
+    .mode-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 6px; border: none;
+      font-size: 11px; font-weight: 600; cursor: pointer;
+      color: rgba(255,255,255,0.5); background: transparent;
+      text-decoration: none; transition: all 0.15s; white-space: nowrap;
+    }
+    .mode-btn:hover { color: rgba(255,255,255,0.8); }
+    .mode-btn.active { background: white; color: var(--hof); }
+
+    /* ── LAYOUT ─────────────────────────────── */
+    .page { max-width: 1160px; margin: 0 auto; padding: 48px 32px; }
+
+    .section { margin-bottom: 64px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-2);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+
+    /* ── PROBLEM STATEMENT ──────────────────── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+    }
+    .problem-icon { font-size: 28px; margin-bottom: 10px; }
+    .problem-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+    .problem-gap {
+      margin-top: 20px;
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-radius: var(--r);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: #92400E;
+      line-height: 1.6;
+    }
+    .problem-gap strong { color: #78350F; }
+
+    /* ── PERSONAS ───────────────────────────── */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .persona-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .persona-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .persona-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .persona-role { font-size: 12px; color: var(--text-3); margin-bottom: 16px; }
+    .persona-attrs { display: flex; flex-direction: column; gap: 8px; }
+    .persona-attr { display: flex; gap: 10px; font-size: 13px; }
+    .attr-label { font-weight: 600; color: var(--text); width: 100px; flex-shrink: 0; }
+    .attr-val { color: var(--text-2); }
+    .persona-access {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .persona-access-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin-bottom: 8px; }
+    .access-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 2px 3px 2px 0;
+    }
+    .access-yes { background: #ECFDF5; color: #065F46; }
+    .access-no  { background: #F3F4F6; color: var(--foggy); text-decoration: line-through; }
+
+    /* ── JOURNEY ────────────────────────────── */
+    .journey-persona-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+    .journey-persona-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .journey-persona-name { font-size: 15px; font-weight: 700; }
+    .journey-persona-desc { font-size: 12px; color: var(--text-3); }
+
+    .step {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .step-meta {}
+    .step-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .step-num {
+      width: 28px; height: 28px;
+      background: var(--hof);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-title { font-size: 18px; font-weight: 700; }
+    .step-context { font-size: 13px; color: var(--text-2); line-height: 1.65; margin-bottom: 20px; padding-left: 42px; }
+
+    .annotations { display: flex; flex-direction: column; gap: 10px; padding-left: 42px; }
+    .ann {
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      line-height: 1.6;
+      border-left: 3px solid transparent;
+    }
+    .ann-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+    }
+    .ann-doing    { background: #EFF6FF; border-left-color: #3B82F6; }
+    .ann-doing    .ann-label { color: #1D4ED8; }
+    .ann-doing    p { color: #1E3A5F; }
+    .ann-sutra  { background: #F0FAFA; border-left-color: var(--babu); }
+    .ann-sutra  .ann-label { color: #0D7377; }
+    .ann-sutra  p { color: #134E4A; }
+    .ann-watchfor { background: #FFFBEB; border-left-color: #F59E0B; }
+    .ann-watchfor .ann-label { color: #92400E; }
+    .ann-watchfor p { color: #78350F; }
+
+    /* ── SCREEN FRAME ───────────────────────── */
+    .step-screen { display: flex; flex-direction: column; gap: 10px; }
+    .frame-outer {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      background: #F0F0F0;
+    }
+    .frame-bar {
+      background: #E8E8E8;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid #D0D0D0;
+    }
+    .frame-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .frame-url {
+      flex: 1;
+      background: white;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 10px;
+      color: var(--foggy);
+      margin: 0 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .frame-wrap {
+      width: 440px;
+      height: 310px;
+      overflow: hidden;
+      position: relative;
+    }
+    .frame-wrap iframe {
+      width: 900px;
+      height: 636px;
+      transform: scale(0.489);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+    .frame-caption {
+      font-size: 11px;
+      color: var(--text-3);
+      text-align: center;
+    }
+    .frame-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--babu);
+      text-decoration: none;
+      justify-content: center;
+    }
+    .frame-launch:hover { text-decoration: underline; }
+    .frame-actions { display: flex; align-items: center; justify-content: space-between; }
+
+    /* ── PRINCIPLES ─────────────────────────── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .principle-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .principle-icon { font-size: 22px; margin-bottom: 10px; }
+    .principle-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .principle-card p { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── OPEN QUESTIONS ─────────────────────── */
+    .questions-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--rausch);
+      border-radius: var(--r);
+      padding: 16px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      box-shadow: var(--shadow);
+    }
+    .question-num { font-size: 12px; font-weight: 700; color: var(--rausch); flex-shrink: 0; padding-top: 1px; }
+    .question-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+    .question-subtext { font-size: 12px; color: var(--text-3); margin-top: 3px; }
+
+    /* ── DIVIDER ────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── FOOTER ─────────────────────────────── */
+    .map-footer {
+      background: var(--hof);
+      color: rgba(255,255,255,0.45);
+      padding: 20px 48px;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* ── THRESHOLD REFS ─────────────────────── */
+    .threshold-refs { display: flex; flex-direction: column; gap: 8px; padding-left: 42px; margin-top: 16px; }
+    .tref {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+    }
+    .tref-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rausch);
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 80px;
+    }
+    .tref-body { flex: 1; }
+    .tref-name { font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .tref-where { color: var(--text-3); font-size: 11px; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="map-header">
+  <div class="map-header-left">
+    <div class="map-logo">P</div>
+    <div>
+      <div class="map-title">Sutra — User Journey Map</div>
+      <div class="map-subtitle">Talent Intelligence Layer · Recruiter + Hiring Manager perspectives</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="mode-switcher">
+      <a class="mode-btn" href="index.html">⬡ Prototype</a>
+      <span class="mode-btn active">↗ Journey Map</span>
+    </div>
+    <div class="map-meta">
+      Version 0.2 · March 2026<br>
+      Interactive prototype · Airbnb internal
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- PROBLEM STATEMENT -->
+  <section class="section">
+    <div class="section-label">Why this exists</div>
+    <div class="section-title">Two talent pools lost every day</div>
+    <div class="section-desc">
+      Most recruiting tools are transaction processors — they record hiring decisions but don't reason across them.
+      Sutra sits on top of existing ATS infrastructure to recover two categories of value that currently expire silently.
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">🏢</div>
+        <h3>Internal talent goes unnoticed</h3>
+        <p>
+          High performers on adjacent teams are never surfaced to hiring managers opening new roles.
+          The HM defaults to external search — incurring cost, ramp time, and the risk of losing
+          the internal employee entirely when they feel overlooked.
+        </p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📂</div>
+        <h3>Strong candidates expire prematurely</h3>
+        <p>
+          External candidates who didn't get an offer — due to timing, headcount, or level mismatch —
+          are abandoned in ATS limbo with no re-engagement path. A candidate strong enough to enter a
+          pool in Year 1 is often still relevant in Year 3.
+        </p>
+      </div>
+    </div>
+
+    <div class="problem-gap">
+      <strong>The gap:</strong> Current tools (Greenhouse, Lever, Workday) record hiring decisions but don't reason
+      across them. Sutra closes that gap — not by replacing the ATS, but by making it smarter about
+      who you already know. Think of it as: <em>"Greenhouse is your transaction processor. Sutra is your talent memory."</em>
+    </div>
+  </section>
+
+  <!-- PERSONAS -->
+  <section class="section">
+    <div class="section-label">Who uses Sutra</div>
+    <div class="section-title">Two roles, two scopes</div>
+    <div class="section-desc">
+      Sutra has two user types with deliberately different access levels. The asymmetry is intentional —
+      churn risk is sensitive personnel data that should never reach a hiring manager's view.
+    </div>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#FFF1F0;">👩‍💼</div>
+        <h3>Recruiter</h3>
+        <div class="persona-role">Full access · Owns the full pipeline</div>
+        <div class="persona-attrs">
+          <div class="persona-attr">
+            <span class="attr-label">Goal</span>
+            <span class="attr-val">Fill roles faster with less regrettable attrition</span>
+          </div>
+          <div class="persona-attr">
+            <span class="attr-label">Pain today</span>
+            <span class="attr-val">Manually building context across ATS, spreadsheets, and email</span>
+          </div>
+          <div class="persona-attr">
+            <span class="attr-label">Signal needed</span>
+            <span class="attr-val">Who's ready to advance, who's going cold, who might leave</span>
+          </div>
+        </div>
+        <div class="persona-access">
+          <div class="persona-access-label">Screen access</div>
+          <span class="access-chip access-yes">✓ Open Roles</span>
+          <span class="access-chip access-yes">✓ Role Breakout</span>
+          <span class="access-chip access-yes">✓ Candidate Packet</span>
+          <span class="access-chip access-yes">✓ At Risk</span>
+          <span class="access-chip access-yes">✓ Notifications</span>
+          <span class="access-chip access-yes">✓ Settings</span>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#F0F9FF;">👨‍💻</div>
+        <h3>Hiring Manager</h3>
+        <div class="persona-role">Scoped access · Owns their roles only</div>
+        <div class="persona-attrs">
+          <div class="persona-attr">
+            <span class="attr-label">Goal</span>
+            <span class="attr-val">Hire the right person for their team, with minimal friction</span>
+          </div>
+          <div class="persona-attr">
+            <span class="attr-label">Pain today</span>
+            <span class="attr-val">Slow feedback loops with recruiting, unclear pipeline status</span>
+          </div>
+          <div class="persona-attr">
+            <span class="attr-label">Signal needed</span>
+            <span class="attr-val">Who to interview next, what's waiting on them</span>
+          </div>
+        </div>
+        <div class="persona-access">
+          <div class="persona-access-label">Screen access</div>
+          <span class="access-chip access-yes">✓ Open Roles (scoped)</span>
+          <span class="access-chip access-yes">✓ Role Breakout</span>
+          <span class="access-chip access-yes">✓ Candidate Packet</span>
+          <span class="access-chip access-no">At Risk</span>
+          <span class="access-chip access-no">Churn scores</span>
+          <span class="access-chip access-no">Settings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUITER JOURNEY -->
+  <section class="section">
+    <div class="section-label">Journey · Recruiter</div>
+    <div class="section-title">From portfolio triage to candidate decision</div>
+    <div class="section-desc" style="margin-bottom:32px">
+      A recruiter managing 10–15 open roles across multiple hiring managers.
+      The journey below traces a single morning triage session that surfaces a role in need of attention.
+    </div>
+
+    <div class="journey-persona-bar">
+      <div class="journey-persona-icon" style="background:#FFF1F0;">👩‍💼</div>
+      <div>
+        <div class="journey-persona-name">Jamie Reyes · Senior Recruiter, Tech</div>
+        <div class="journey-persona-desc">Managing 12 open roles · Airbnb HQ · 4 years recruiting</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Morning triage</div>
+        </div>
+        <p class="step-context">
+          Jamie opens Sutra at the start of the day. Rather than digging through Greenhouse filters,
+          they get an org-level snapshot: 25 of 47 open reqs are tracked in Sutra, 547 employees
+          match at least one open role, 6 roles are stalled, and 312 employees are flagged as at-risk.
+          The headline copy is deliberately editorial — it names the action, not just the number.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Scanning the dashboard for signals that require same-day action. Looking for stalled roles and roles with internal candidates.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>Consolidated org view across all reqs. Stalled roles and at-risk employees are surfaced immediately — triage starts at the problem, not a blank list.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>Does "25 of 47 in Sutra" create confusion about the other 22 roles? Incomplete coverage may undermine trust in the org numbers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · Open Roles</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=open-roles" loading="lazy" title="Open Roles"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Open Roles — portfolio homepage</div>
+          <a class="frame-launch" href="index.html?screen=open-roles" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Drill into a role</div>
+        </div>
+        <p class="step-context">
+          Jamie clicks into <em>Product Manager — Trust &amp; Safety</em> (47 days open, Needs Attention).
+          The role breakout loads with a pipeline funnel at the top and a prioritized action band below.
+          An offer is already extended to Jordan Kim — the teal card anchors the band as the most
+          contextually significant item. Three candidates need decisions today.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Reading the action band to understand what decisions are theirs vs. what's waiting on the hiring manager or candidate. Checking the offer status in the funnel.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>Action band surfaces exactly what needs a decision today — the extended offer, a feedback gap, and a candidate going cold — without the recruiter having to build this picture manually across tabs.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>Does the visual hierarchy (teal offer card vs. red urgency cards) clearly communicate priority order? The offer card is informational — the red cards require action.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · PM — Trust &amp; Safety</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=role-breakout&iid=ri1" loading="lazy" title="Role Breakout"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Role Breakout — PM, Trust &amp; Safety</div>
+          <a class="frame-launch" href="index.html?screen=role-breakout&iid=ri1" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Review the candidate pool</div>
+        </div>
+        <p class="step-context">
+          Scrolling past the action band, Jamie reviews all 7 candidates. They use the filter tabs
+          to pivot between views — toggling "Sutra Recommended" to see the 7 above the 75% match
+          threshold, and "Internal" to focus on the 3 employees already at Airbnb.
+          Internal candidates are marked with an orange prefix so they're scannable at a glance.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Scanning match scores, churn risk chips, and stage labels. Using filter tabs to narrow focus. Noting which candidates are internal vs. external without opening each packet.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>"Sutra Recommended" makes AI filtering explicit and opt-in — the recruiter is never silently shown a curated view. Internal candidates are labeled inline so the recruiter sees mobility opportunity without switching screens.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>7 candidates for a role with 847 applicants — will the recruiter trust that threshold? The match score threshold (75%) is configurable in Settings, but discoverability matters.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · PM — Trust &amp; Safety · Internal (3)</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=role-breakout&iid=ri1&filter=internal" loading="lazy" title="Candidate Pool"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Candidate pool — Internal filter active</div>
+          <a class="frame-launch" href="index.html?screen=role-breakout&iid=ri1&filter=internal" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-title">Deep-dive on a candidate</div>
+        </div>
+        <p class="step-context">
+          Jamie clicks into Mia Tanaka — an internal L3 PM at Airbnb with a 91% match score and 3
+          champions. The candidate packet shows a Sutra AI Summary, always-visible AI flags, a
+          validated skills breakdown, and endorsements. Mia has High Churn risk and is simultaneously
+          active in two role instances — both facts are disclosed explicitly.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Reading the AI summary, checking which skills are validated vs. self-reported, reviewing champion endorsements, and deciding whether to advance Mia to the next stage.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>Validated skills are always distinguished from inferred ones. AI flags are never suppressed. Multi-role consideration is disclosed. The recruiter can make a calibrated decision — not one based on algorithm output alone.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>The AI summary is dense prose. Under time pressure, recruiters may skip it and rely only on the match score — which inverts the intended validation hierarchy. Key signals should be skimmable in &lt;10 seconds.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · Mia Tanaka · Candidate Packet</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=candidate-packet&cid=c1&iid=ri1" loading="lazy" title="Candidate Packet"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Candidate Packet — Mia Tanaka</div>
+          <a class="frame-launch" href="index.html?screen=candidate-packet&cid=c1&iid=ri1" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">5</div>
+          <div class="step-title">Proactive retention check</div>
+        </div>
+        <p class="step-context">
+          Before wrapping up, Jamie visits the At Risk tab — recruiter-only, never visible to HMs.
+          312 employees are flagged org-wide; 16 match open roles right now. Mia Tanaka appears at
+          the top — already in the PM pipeline but at high churn risk with 32 months without promotion.
+          Jamie can now coordinate an internal move before Mia starts looking externally.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Scanning at-risk employees who match open roles. Identifying Mia — already in the pipeline — as a candidate where internal mobility is the right retention lever.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>At Risk surfaces churn signals before they become exits. Each card shows matched open roles with match scores, so the recruiter can act on retention and hiring simultaneously without switching tools.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>312 flagged employees is a large number to triage. The current list sorts by match but offers no churn severity ranking. Recruiters may need a "most urgent" sort to act on the right employees first.</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · At Risk · 312 flagged</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=at-risk" loading="lazy" title="At Risk"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">At Risk — recruiter-only view</div>
+          <a class="frame-launch" href="index.html?screen=at-risk" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 — SETTINGS -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">6</div>
+          <div class="step-title">Calibrating the thresholds</div>
+        </div>
+        <p class="step-context">
+          Every number surfaced in the journey above is configurable. The recruiter — or their team lead —
+          visits Settings to tune the signal sensitivity to their organization's norms. These are
+          organization-level settings, not per-recruiter, so changes affect the entire team's view.
+          The defaults reflect reasonable starting points, but orgs with lower bar-to-hire or higher
+          attrition environments will need to adjust.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Reviewing the thresholds that drive all AI signals across the product. Adjusting match score or churn risk cutoffs after observing real pipeline results.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>Full transparency into every tunable parameter. No AI signal is a black box — recruiters can see exactly what score drives what surface, and change it.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>Settings are organization-level in v1 — one recruiter changing the match threshold affects everyone. Is that the right default? Teams with mixed hiring bars may need per-role overrides.</p>
+          </div>
+        </div>
+
+        <div style="padding-left:42px;margin-top:18px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px">Where each threshold appears in this journey</div>
+        </div>
+        <div class="threshold-refs">
+          <div class="tref">
+            <div class="tref-val">75%</div>
+            <div class="tref-body">
+              <div class="tref-name">Match score threshold</div>
+              <div class="tref-where">→ Steps 2 &amp; 3: drives "Sutra Recommended" filter · filters 847 applicants to 7 candidates above threshold</div>
+            </div>
+          </div>
+          <div class="tref">
+            <div class="tref-val">70%</div>
+            <div class="tref-body">
+              <div class="tref-name">Churn risk threshold</div>
+              <div class="tref-where">→ Steps 4 &amp; 5: determines who appears in At Risk · drives "High Churn" chip on Mia Tanaka's candidate packet</div>
+            </div>
+          </div>
+          <div class="tref">
+            <div class="tref-val">18 mo</div>
+            <div class="tref-body">
+              <div class="tref-name">Tenure gap signal</div>
+              <div class="tref-where">→ Step 5: Mia's 32 months without promotion triggers the churn flag · threshold controls when the clock starts</div>
+            </div>
+          </div>
+          <div class="tref">
+            <div class="tref-val">Never</div>
+            <div class="tref-body">
+              <div class="tref-name">Talent pool expiration</div>
+              <div class="tref-where">→ Affects all steps: external candidates surfaced via "Endorsed" filter may have entered the pool years ago · never silently removed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · Settings</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=settings" loading="lazy" title="Settings"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Settings — configurable signal thresholds</div>
+          <a class="frame-launch" href="index.html?screen=settings" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- HIRING MANAGER JOURNEY -->
+  <section class="section">
+    <div class="section-label">Journey · Hiring Manager</div>
+    <div class="section-title">Scoped view, same intelligence</div>
+    <div class="section-desc" style="margin-bottom:32px">
+      The HM sees only their own role instances. No At Risk tab. No churn scores. Otherwise the same
+      action band and candidate experience — designed so HMs get the context they need without accessing
+      sensitive personnel data that should stay with recruiting.
+    </div>
+
+    <div class="journey-persona-bar">
+      <div class="journey-persona-icon" style="background:#F0F9FF;">👨‍💻</div>
+      <div>
+        <div class="journey-persona-name">Priya Sharma · Senior Director, Trust &amp; Safety PM</div>
+        <div class="journey-persona-desc">Hiring for 1 open role · PM — Trust &amp; Safety (L4)</div>
+      </div>
+    </div>
+
+    <!-- HM STEP 1 -->
+    <div class="step">
+      <div class="step-meta">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Scoped pipeline view</div>
+        </div>
+        <p class="step-context">
+          Priya opens Sutra and lands directly on her role — no open roles list, no org-wide stats.
+          She sees the same action band and candidate table as the recruiter, but churn risk chips are
+          hidden and the At Risk tab is absent from navigation. The HM banner reminds her of
+          her access scope.
+        </p>
+        <div class="annotations">
+          <div class="ann ann-doing">
+            <div class="ann-label">Doing</div>
+            <p>Checking what's pending on her side — specifically which candidates are waiting on her for feedback or scheduling. Acting on the items in the action band.</p>
+          </div>
+          <div class="ann ann-sutra">
+            <div class="ann-label">Sutra provides</div>
+            <p>Clear "waiting on hiring manager" labels in the action band tell Priya exactly what she owns. She doesn't need to ask recruiting for status — the pipeline ownership is visible.</p>
+          </div>
+          <div class="ann ann-watchfor">
+            <div class="ann-label">Watch for</div>
+            <p>HMs may not immediately understand they're in a scoped view. The absence of the At Risk tab and certain data fields needs to feel intentional, not broken. The HM banner helps — but should it be more prominent?</p>
+          </div>
+        </div>
+      </div>
+      <div class="step-screen">
+        <div class="frame-outer">
+          <div class="frame-bar">
+            <div class="frame-dot" style="background:#FF5F57"></div>
+            <div class="frame-dot" style="background:#FEBC2E"></div>
+            <div class="frame-dot" style="background:#28C840"></div>
+            <div class="frame-url">sutra · PM — Trust &amp; Safety · HM view</div>
+          </div>
+          <div class="frame-wrap">
+            <iframe src="index.html?screen=role-breakout&iid=ri1&view=hm" loading="lazy" title="HM View"></iframe>
+          </div>
+        </div>
+        <div class="frame-actions">
+          <div class="frame-caption">Role Breakout — Hiring Manager view</div>
+          <a class="frame-launch" href="index.html?screen=role-breakout&iid=ri1&view=hm" target="_blank">Open live ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- DESIGN PRINCIPLES -->
+  <section class="section">
+    <div class="section-label">Non-negotiables</div>
+    <div class="section-title">Design principles that must hold</div>
+    <div class="section-desc">
+      These are product commitments, not preferences. Every design decision should be evaluated against them.
+    </div>
+
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-icon">🔍</div>
+        <h4>No hallucinations</h4>
+        <p>Every AI output must be source-traceable. No inference is displayed without an auditable signal. Self-reported skills are always labeled as such.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🤝</div>
+        <h4>Human in the loop</h4>
+        <p>Sutra never takes autonomous action on a candidate. No auto-advance, no auto-reject, no auto-outreach. Every action requires a deliberate human click.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">👁</div>
+        <h4>Candidate transparency</h4>
+        <p>Multi-role consideration is always disclosed on the candidate packet. Candidates see when they're being considered for more than one role.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">✅</div>
+        <h4>Validated over inferred</h4>
+        <p>Skill validation status is always visible. Validated skills are visually distinguished from inferred ones. Decisions should weight validated signals heavily.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🔒</div>
+        <h4>Churn is sensitive</h4>
+        <p>Churn risk data is recruiter-only. It is never surfaced to hiring managers — doing so could create awkward dynamics or bias performance reviews.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">♾️</div>
+        <h4>Talent pools don't expire</h4>
+        <p>Candidates in the pool remain indefinitely unless explicitly archived or opted out. The value of the talent graph compounds over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN QUESTIONS -->
+  <section class="section">
+    <div class="section-label">Discussion</div>
+    <div class="section-title">Open questions for this prototype</div>
+    <div class="section-desc">
+      These are the tensions this journey surfaces that need resolution before v1 scoping.
+    </div>
+
+    <div class="questions-list">
+      <div class="question-card">
+        <div class="question-num">Q1</div>
+        <div>
+          <div class="question-text">Does Sutra solve a workflow problem or a data problem — and does the recruiter experience reflect the right one?</div>
+          <div class="question-subtext">The action band is workflow-oriented (what do I do next?). The At Risk tab is data-oriented (who might leave?). Are we trying to do both in v1, or should one be primary?</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-num">Q2</div>
+        <div>
+          <div class="question-text">Will recruiters trust the AI match score enough to act on "Sutra Recommended" candidates?</div>
+          <div class="question-subtext">A 75% threshold filters 847 applicants down to 7. If the recruiter doesn't trust the score methodology, the filter becomes noise rather than signal. How do we build trust in the score early?</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-num">Q3</div>
+        <div>
+          <div class="question-text">How does the recruiter manage 312 at-risk employees without a severity ranking?</div>
+          <div class="question-subtext">The current At Risk list is paginated but not urgency-sorted. A recruiter can't act on 312 people — they need a "most urgent this week" view. What signals determine urgency beyond churn score?</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-num">Q4</div>
+        <div>
+          <div class="question-text">What happens to the action band when the offer is declined?</div>
+          <div class="question-subtext">The current prototype surfaces an offer card and advises keeping other candidates warm. If Jordan Kim declines, the band should reset — but how does that state change get communicated back to Sutra from the ATS?</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-num">Q5</div>
+        <div>
+          <div class="question-text">Is the HM experience differentiated enough to justify a separate view toggle?</div>
+          <div class="question-subtext">The HM view currently removes At Risk access and churn chips. Is that the right level of differentiation — or should the HM experience have its own information architecture rather than a scoped version of the recruiter's?</div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-num">Q6</div>
+        <div>
+          <div class="question-text">Where does candidate consent and transparency actually live?</div>
+          <div class="question-subtext">The spec calls for candidates to see when they're being considered for multiple roles. This is shown in the recruiter packet but there's no candidate-facing view in v1. What's the interim disclosure mechanism?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="map-footer">
+  Sutra · User Journey Map · v0.2 · March 2026 · Confidential — Airbnb internal
+</footer>
+
+</body>
+</html>
