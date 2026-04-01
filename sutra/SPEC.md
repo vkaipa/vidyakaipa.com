@@ -1,17 +1,17 @@
-# Portico — Product Specification
+# Sutra — Product Specification
 **Version:** 0.2 (merged v0.1 + addendum)
 **Status:** Interactive prototype in progress
 
 ---
 
-## What Is Portico?
+## What Is Sutra?
 
-Portico is a Talent Intelligence Layer that sits on top of existing recruiting infrastructure (ATS, HRIS). It turns two common talent losses into recoverable assets:
+Sutra is a Talent Intelligence Layer that sits on top of existing recruiting infrastructure (ATS, HRIS). It turns two common talent losses into recoverable assets:
 
 1. **Strong internal employees** who weren't surfaced or considered for open roles
 2. **Strong external candidates** who fell off after a single rejection
 
-Portico doesn't replace your ATS. It makes it smarter about who you already know.
+Sutra doesn't replace your ATS. It makes it smarter about who you already know.
 
 ---
 
@@ -22,7 +22,7 @@ Recruiting teams lose two high-value talent pools every day:
 - **Internal talent goes unnoticed.** High performers on adjacent teams are never surfaced to hiring managers opening new roles. The HM defaults to external search, incurring cost and ramp time.
 - **Past candidates expire prematurely.** Strong external candidates who didn't get an offer — due to timing, headcount, or level mismatch — are abandoned in ATS limbo with no re-engagement path.
 
-Current tools (Greenhouse, Lever, Workday) are transaction-processors. They record hiring decisions but don't reason across them. Portico closes that gap.
+Current tools (Greenhouse, Lever, Workday) are transaction-processors. They record hiring decisions but don't reason across them. Sutra closes that gap.
 
 ---
 
@@ -32,11 +32,11 @@ Current tools (Greenhouse, Lever, Workday) are transaction-processors. They reco
 One **Role Template** (canonical job definition: skills, leveling, competency requirements) can have multiple **Role Instances** — one per hiring manager / team combination. A strong candidate can be broadcast to all matching instances simultaneously, not siloed to one HM's pipeline.
 
 ### Talent Pool (No Expiration)
-Once a candidate enters a Portico talent pool, they remain indefinitely unless:
+Once a candidate enters a Sutra talent pool, they remain indefinitely unless:
 - They are explicitly archived by a recruiter
 - They opt out via candidate transparency controls
 
-There is no automatic expiration. The value of Portico's talent graph compounds over time — a candidate strong enough to enter a pool in Year 1 remains accessible in Year 3 unless actively removed. Recruiters are responsible for curation, not the system.
+There is no automatic expiration. The value of Sutra's talent graph compounds over time — a candidate strong enough to enter a pool in Year 1 remains accessible in Year 3 unless actively removed. Recruiters are responsible for curation, not the system.
 
 ### Champion Endorsement System
 Internal employees who previously worked with an external candidate can submit endorsements. Each endorsement is disclosed to the hiring team along with the relationship (e.g., "Former direct report at Meta"). Undisclosed relationships trigger an AI flag.
@@ -57,7 +57,7 @@ Skills are always shown with their validation status. **Validated** = confirmed 
 ## User Roles
 
 ### Recruiter
-Full access to all Portico screens:
+Full access to all Sutra screens:
 - Open Roles (homepage with all active role instances)
 - Role Breakout (candidate pipeline for a specific role instance)
 - Candidate Packet (full candidate profile)
@@ -86,7 +86,7 @@ Churn risk scores and the At Risk tab are **visible only to recruiters**. They a
 
 ## Settings View
 
-Portico exposes configurable thresholds so recruiting teams can tune signal sensitivity to their organization's norms. Settings are recruiter-accessible.
+Sutra exposes configurable thresholds so recruiting teams can tune signal sensitivity to their organization's norms. Settings are recruiter-accessible.
 
 ### Configurable Parameters
 | Setting | Default | Description |
@@ -157,7 +157,7 @@ Scoped subset of recruiter view. No At Risk tab. No churn scores. Otherwise same
 | Principle | Rule |
 |---|---|
 | No hallucinations | Every AI output must be source-traceable. No inference without an auditable signal. |
-| Human in the loop | Portico never takes autonomous action on a candidate (no auto-advance, no auto-reject, no auto-outreach). All actions require a human click. |
+| Human in the loop | Sutra never takes autonomous action on a candidate (no auto-advance, no auto-reject, no auto-outreach). All actions require a human click. |
 | Candidate transparency | Multi-role consideration is always disclosed on the candidate packet. Candidates see when they're being considered for more than one role. |
 | Validated > inferred | Skill validation status is always visible. Validated skills are visually distinguished from inferred ones. |
 | Churn is sensitive | Churn risk data is recruiter-only. Never surface to HMs. |
@@ -167,11 +167,11 @@ Scoped subset of recruiter view. No At Risk tab. No churn scores. Otherwise same
 
 ## Competitive Positioning vs. Greenhouse
 
-Portico is **not** a replacement for Greenhouse. The positioning is:
+Sutra is **not** a replacement for Greenhouse. The positioning is:
 
-> "Greenhouse is your transaction processor. Portico is your talent memory."
+> "Greenhouse is your transaction processor. Sutra is your talent memory."
 
-| Capability | Greenhouse | Portico |
+| Capability | Greenhouse | Sutra |
 |---|---|---|
 | Job posting & application tracking | Yes | No |
 | Interview scheduling | Yes | No |
@@ -183,9 +183,9 @@ Portico is **not** a replacement for Greenhouse. The positioning is:
 | Champion endorsement with disclosure | No | Yes |
 | AI signal traceability | No | Yes |
 
-Portico reads from Greenhouse via API (read-only in v1). It does not write back. The integration surfaces Greenhouse pipeline data inside Portico's intelligence layer — it does not replace the Greenhouse workflow.
+Sutra reads from Greenhouse via API (read-only in v1). It does not write back. The integration surfaces Greenhouse pipeline data inside Sutra's intelligence layer — it does not replace the Greenhouse workflow.
 
-**Sales motion:** Sell to recruiting teams already on Greenhouse. Portico is an add-on intelligence layer, not a rip-and-replace. ACV target: teams with 50+ open roles who have measurable regrettable attrition.
+**Sales motion:** Sell to recruiting teams already on Greenhouse. Sutra is an add-on intelligence layer, not a rip-and-replace. ACV target: teams with 50+ open roles who have measurable regrettable attrition.
 
 ---
 
@@ -209,7 +209,7 @@ Portico reads from Greenhouse via API (read-only in v1). It does not write back.
 
 ## Tech Stack (Prototype)
 
-- Single self-contained HTML file (`portico/index.html`)
+- Single self-contained HTML file (`sutra/index.html`)
 - Vanilla JS, CSS, HTML — no framework, no build tool
 - 100% mock data
 - Google Fonts: DM Sans (UI) + DM Serif Display (editorial moments)
